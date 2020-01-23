@@ -27,7 +27,7 @@ To demonstrate our understanding of full-stack development by working together t
 * Users can view their shopping carts.
 * Users can increase/decrease quantity of items.
 * Users can remove items from their shopping cart.
-* Users can post reviews with a rating.
+* Users can post a rating with an optional review
 * Users can see reviews for both product and sellers for a given item.
 * Users can send messages and have conversations with sellers.
 * Shopping carts are stored per user in the database.
