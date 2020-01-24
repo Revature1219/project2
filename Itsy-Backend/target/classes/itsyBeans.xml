@@ -21,10 +21,11 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.itsy.model.Cart</value>
-				<value>com.itsy.model.User</value>
+				<value>com.itsy.model.Person</value>
 				<value>com.itsy.model.Customer</value>
-				<value>com.itsy.model.Item</value>
 				<value>com.itsy.model.Message</value>
+				<value>com.itsy.model.Conversation</value>
+				<value>com.itsy.model.Item</value>
 				<value>com.itsy.model.Review</value>
 				<value>com.itsy.model.Seller</value>
 				<value>com.itsy.model.Status</value>
@@ -34,7 +35,7 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<!-- <prop key="hibernate.current_session_context_class">thread</prop> 
 					@Transactional -->

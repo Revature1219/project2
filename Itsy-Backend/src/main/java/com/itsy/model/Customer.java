@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 @PrimaryKeyJoinColumn(name="id")
-public class Customer extends User {
+public class Customer extends Person {
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Cart> carts;
 

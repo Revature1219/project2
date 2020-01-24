@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 @Inheritance(strategy=InheritanceType.JOINED)
-public abstract class User {
+public abstract class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;

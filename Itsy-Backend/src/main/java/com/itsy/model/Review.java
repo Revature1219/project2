@@ -16,8 +16,6 @@ public class Review {
 	private int id;
 	@OneToOne(fetch = FetchType.LAZY)
 	private Customer customer;
-	@OneToOne(fetch = FetchType.LAZY)
-	private Item item;
 	private double rating;
 	private String message;
 
