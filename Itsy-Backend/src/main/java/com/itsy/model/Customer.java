@@ -2,7 +2,17 @@ package com.itsy.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table
+@PrimaryKeyJoinColumn(name="id")
 public class Customer extends User {
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<Cart> carts;
 
 	public Customer(List<Cart> carts) {

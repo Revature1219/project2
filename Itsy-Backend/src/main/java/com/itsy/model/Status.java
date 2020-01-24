@@ -2,7 +2,18 @@ package com.itsy.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Status {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int id;
 	private Date addedToCart;
 	private Date ordered;
 	private Date shipped;
@@ -16,6 +27,14 @@ public class Status {
 		this.addedToCart = addedToCart;
 		this.ordered = ordered;
 		this.shipped = shipped;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Date getAddedToCart() {
