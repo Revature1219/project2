@@ -20,14 +20,14 @@ public class Message {
 //	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date sentDate;
 	@OneToOne //(fetch = FetchType.LAZY) //keeping this eager because I'm paranoid. This will probably be ok to be Lazy, later.
-	private Person originator;
+	private User originator;
 	private String contents;
 	
 	public Message() {
 		
 	}
 	
-	public Message(int id, Date sentDate, Person originator, String contents) {
+	public Message(int id, Date sentDate, User originator, String contents) {
 		super();
 		this.id = id;
 		this.sentDate = sentDate;
@@ -51,11 +51,11 @@ public class Message {
 		this.sentDate = sentDate;
 	}
 
-	public Person getOriginator() {
+	public User getOriginator() {
 		return originator;
 	}
 
-	public void setOriginator(Person originator) {
+	public void setOriginator(User originator) {
 		this.originator = originator;
 	}
 

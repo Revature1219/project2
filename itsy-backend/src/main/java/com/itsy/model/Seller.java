@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 //@PrimaryKeyJoinColumn(name="id")
-public class Seller extends Person {
+public class Seller extends User {
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Review> reviews;
 	
