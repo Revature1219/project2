@@ -1,5 +1,5 @@
 package com.itsy.service;
 
-public class SellerServiceImpl {
+public class CartServiceImpl {
 
 }

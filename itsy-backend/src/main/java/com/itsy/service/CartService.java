@@ -1,5 +1,5 @@
 package com.itsy.service;
 
-public interface SellerService {
+public interface CartService {
 
 }
