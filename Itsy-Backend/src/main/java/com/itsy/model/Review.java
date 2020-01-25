@@ -27,7 +27,6 @@ public class Review {
 		super();
 		this.id = id;
 		this.customer = customer;
-		this.item = item;
 		this.rating = rating;
 		this.message = message;
 	}
@@ -46,14 +45,6 @@ public class Review {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
-
-	public Item getItem() {
-		return item;
-	}
-
-	public void setItem(Item item) {
-		this.item = item;
 	}
 
 	public double getRating() {

@@ -20,7 +20,7 @@ public class Main {
 		
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
-		Seller se = (Seller) session.get(Seller.class, 10);
+//		Seller se = (Seller) session.get(Seller.class, 10); 
 		
 //		Seller seller = new Seller();
 //		seller.setName("Austin");
@@ -28,7 +28,7 @@ public class Main {
 //		seller.setReviews(new ArrayList<Review>());
 //		
 //		session.save(seller);
-		System.out.println(se.getName());
+//		System.out.println(se.getName());
 		
 		transaction.commit();
 		session.close();
