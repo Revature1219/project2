@@ -13,13 +13,14 @@ import { SellerEditComponent } from './seller/seller-edit/seller-edit.component'
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
 import { SellerMessageComponent } from './seller/seller-message/seller-message.component';
 import { MessagingComponent } from './messaging/messaging.component';
-import { ItemreviewComponent } from './itemreview/itemreview.component';
-import { SellerreivewComponent } from './sellerreivew/sellerreivew.component';
-import { ItemDetailComponent } from './user/item-detail/item-detail.component';
-import { ItemDisplayComponent } from './user/item-display/item-display.component';
-import { UserHeaderComponent } from './user/user-header/user-header.component';
-import { ShopDisplayComponent } from './user/shop-display/shop-display.component';
-import { OrderHistoryComponent } from './user/order-history/order-history.component';
+import { ItemreviewComponent } from './review/itemreview/itemreview.component';
+import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
+import { ItemDetailComponent } from './customer/item-detail/item-detail.component';
+import { ItemDisplayComponent } from './customer/item-display/item-display.component';
+import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
+import { OrderHistoryComponent } from './customer/order-history/order-history.component';
+import { CustomerHeaderComponent } from './customer/customer-header/customer-header.component';
+import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +38,10 @@ import { OrderHistoryComponent } from './user/order-history/order-history.compon
     SellerreivewComponent,
     ItemDetailComponent,
     ItemDisplayComponent,
-    UserHeaderComponent,
     ShopDisplayComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    CustomerHeaderComponent,
+    CustomerHomeComponent
   ],
   imports: [
     BrowserModule,
