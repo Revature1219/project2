@@ -5,7 +5,6 @@ export class Review {
     
 	id : number;
     customer : Customer;
-    item : Item;
     rating : number;
     message : string;
 
