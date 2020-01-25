@@ -15,6 +15,9 @@ import { SellerMessageComponent } from './seller/seller-message/seller-message.c
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './itemreview/itemreview.component';
 import { SellerreivewComponent } from './sellerreivew/sellerreivew.component';
+import { ItemDetailComponent } from './user/item-detail/item-detail.component';
+import { ItemDisplayComponent } from './user/item-display/item-display.component';
+import { UserHeaderComponent } from './user/user-header/user-header.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { SellerreivewComponent } from './sellerreivew/sellerreivew.component';
     SellerMessageComponent,
     MessagingComponent,
     ItemreviewComponent,
-    SellerreivewComponent
+    SellerreivewComponent,
+    ItemDetailComponent,
+    ItemDisplayComponent,
+    UserHeaderComponent
   ],
   imports: [
     BrowserModule,
