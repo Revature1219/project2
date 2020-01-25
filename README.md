@@ -1,6 +1,6 @@
 # Itsy
 
-# Team Composition/Responsibilities
+## Team Composition/Responsibilities
 
 * Tee - Customer Front End Module
 * Annie - Seller Shop setup Module
@@ -8,12 +8,12 @@
 * Jason - Reviews/User-Seller Interaction
 ​
 ## Description
-​
-	The Itsy app is a web-based application that will provide simple implementation of seller/customer interactions. Anyone should be able to browse the contents of the website’s sellers’ consumables. After registering an account, customers should be able to place orders for items with the option of contacting the seller about potential special orders/requests. Sellers should be able to register an account, post items they wish to sell, and communicate with any customer who contacts them.
+
+​The Itsy app is a web-based application that will provide simple implementation of seller/customer interactions. Anyone should be able to browse the contents of the website’s sellers’ consumables. After registering an account, customers should be able to place orders for items with the option of contacting the seller about potential special orders/requests. Sellers should be able to register an account, post items they wish to sell, and communicate with any customer who contacts them.
 	
 ## Purpose
-​
-To demonstrate our understanding of full-stack development by working together to provide a seamless user experience -- whether from the customer or seller point-of-view.​
+
+​To demonstrate our understanding of full-stack development by working together to provide a seamless user experience -- whether from the customer or seller point-of-view.​
 ​
 ## User Stories
 
