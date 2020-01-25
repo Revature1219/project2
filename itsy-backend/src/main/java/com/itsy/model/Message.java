@@ -8,12 +8,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity
 @Table
 public class Message {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
@@ -22,48 +32,5 @@ public class Message {
 	@OneToOne //(fetch = FetchType.LAZY) //keeping this eager because I'm paranoid. This will probably be ok to be Lazy, later.
 	private User originator;
 	private String contents;
-	
-	public Message() {
-		
-	}
-	
-	public Message(int id, Date sentDate, User originator, String contents) {
-		super();
-		this.id = id;
-		this.sentDate = sentDate;
-		this.originator = originator;
-		this.contents = contents;
-	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Date getSentDate() {
-		return sentDate;
-	}
-
-	public void setSentDate(Date sentDate) {
-		this.sentDate = sentDate;
-	}
-
-	public User getOriginator() {
-		return originator;
-	}
-
-	public void setOriginator(User originator) {
-		this.originator = originator;
-	}
-
-	public String getContents() {
-		return contents;
-	}
-
-	public void setContents(String contents) {
-		this.contents = contents;
-	}
 }
