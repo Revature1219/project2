@@ -18,6 +18,8 @@ import { SellerreivewComponent } from './sellerreivew/sellerreivew.component';
 import { ItemDetailComponent } from './user/item-detail/item-detail.component';
 import { ItemDisplayComponent } from './user/item-display/item-display.component';
 import { UserHeaderComponent } from './user/user-header/user-header.component';
+import { ShopDisplayComponent } from './user/shop-display/shop-display.component';
+import { OrderHistoryComponent } from './user/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UserHeaderComponent } from './user/user-header/user-header.component';
     SellerreivewComponent,
     ItemDetailComponent,
     ItemDisplayComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    ShopDisplayComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
