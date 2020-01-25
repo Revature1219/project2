@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -31,6 +32,8 @@ public class Item {
 	private int id;
 	private String name;
 	private double price;
+	@Lob
+	private byte[] image;
 	private String details;
 	@OneToOne(fetch = FetchType.LAZY)
 	private Seller seller;
