@@ -1,1 +1,23 @@
-<p>messaging works!</p>
+<div tabindex="1">   
+    <div *ngIf="showText">
+        <div>
+            <button *ngFor="let conversation of conversations; index as i" (click)="changeConversation(i)">
+                {{conversation.seller}}   </button>
+        <div id='scrollMe'>
+            <ul class="reviews">
+                <li *ngFor="let message of conversations[currentConversation].messages">
+                  {{message.originator}}: {{message.contents}}
+                </li>
+              </ul>
+        </div>
+        <div>
+            <textarea #textArea (focus)="showContent()" (keyup.enter)="send()" [(ngModel)]="message" rows="2" cols="35"></textarea>
+        </div>
+        </div>
+        <div>
+        <button (click)="send()">Send</button>
+        <button (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+    <h3 (click)="toggleContent()">Texting app</h3> 
+</div>

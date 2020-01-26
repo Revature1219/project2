@@ -13,8 +13,10 @@ import { SellerEditComponent } from './seller/seller-edit/seller-edit.component'
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
 import { SellerMessageComponent } from './seller/seller-message/seller-message.component';
 import { MessagingComponent } from './messaging/messaging.component';
-import { ItemreviewComponent } from './itemreview/itemreview.component';
-import { SellerreivewComponent } from './sellerreivew/sellerreivew.component';
+import { ItemreviewComponent } from './review/itemreview/itemreview.component';
+import { SellerreviewComponent } from './review/sellerreview/sellerreview.component';
+import { ReviewComponent } from './review/review.component';
+import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SellerreivewComponent } from './sellerreivew/sellerreivew.component';
     SellerMessageComponent,
     MessagingComponent,
     ItemreviewComponent,
-    SellerreivewComponent
+    SellerreviewComponent,
+    ReviewComponent,
+    ReviewstarsComponent
   ],
   imports: [
     BrowserModule,

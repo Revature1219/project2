@@ -1,15 +1,15 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Seller } from 'src/app/model/seller.class';
 import { Review } from 'src/app/model/review.class';
-import { Item } from 'src/app/model/item.class';
 
 @Component({
-  selector: 'app-itemreview',
-  templateUrl: './itemreview.component.html',
-  styleUrls: ['./itemreview.component.css']
+  selector: 'app-sellerreview',
+  templateUrl: './sellerreview.component.html',
+  styleUrls: ['./sellerreview.component.css']
 })
-export class ItemreviewComponent implements OnInit {
+export class SellerreviewComponent implements OnInit {
 
-  @Input() item: Item;
+  @Input() seller: Seller;
   userReview:Review = { id:0,
                         customerName:"",
                         rating:0,

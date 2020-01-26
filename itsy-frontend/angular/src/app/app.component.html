@@ -1,3 +1,6 @@
+<h1>hello {{item.name}}</h1>
 <div class="container">
-  <router-outlet></router-outlet>
+  <app-itemreview [item]="item"></app-itemreview>
+  <app-sellerreview [seller]="seller"></app-sellerreview>
+  <app-messaging></app-messaging>
 </div>

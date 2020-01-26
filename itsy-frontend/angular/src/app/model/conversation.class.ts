@@ -1,11 +1,11 @@
 import { Customer } from './customer.class';
 import { Seller } from './seller.class';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Message } from './message.class';
 
 export class Conversation {
     id : number;
-    customer : Customer;
-    seller : Seller;
+    customer : String;
+    seller : String;
     messages : Message[];
     read: boolean;
 }

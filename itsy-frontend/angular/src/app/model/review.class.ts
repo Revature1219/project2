@@ -1,11 +1,10 @@
 import { Customer } from './customer.class';
 import { Item } from './item.class';
 
-export class Review {
-    
+export class Review {  
 	id : number;
-    customer : Customer;
+    customerName : String;
     rating : number;
     message : string;
-
+    date : Date;
 }

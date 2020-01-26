@@ -1,0 +1,15 @@
+<ng-container *ngIf="rating>=1; else lone"><img width=20 height=20 src="assets/fullStar.png"/></ng-container>
+<ng-template #lone> <ng-container *ngIf="rating==.5; else zero"><img width=20 height=20 src="assets/halfStar.png"/></ng-container></ng-template>
+<ng-template #zero><ng-container><img width=20 height=20 src="assets/emptyStar.png"/></ng-container></ng-template>
+<ng-container *ngIf="rating>=2; else ltwo"><img width="20" height=20 src="assets/fullStar.png"/></ng-container>
+<ng-template #ltwo> <ng-container *ngIf="rating==1.5; else one"><img width="20" height=20 src="assets/halfStar.png"/></ng-container></ng-template>
+<ng-template #one><ng-container><img width="20" height=20 src="assets/emptyStar.png"/></ng-container></ng-template>
+<ng-container *ngIf="rating>=3; else lthree"><img width="20" height=20 src="assets/fullStar.png"/></ng-container>
+<ng-template #lthree> <ng-container *ngIf="rating==2.5; else two"><img width="20" height=20 src="assets/halfStar.png"/></ng-container></ng-template>
+<ng-template #two><ng-container><img width="20" height=20 src="assets/emptyStar.png"/></ng-container></ng-template>
+<ng-container *ngIf="rating>=4; else lfour"><img width="20" height=20 src="assets/fullStar.png"/></ng-container>
+<ng-template #lfour> <ng-container *ngIf="rating==3.5; else three"><img width="20" height=20 src="assets/halfStar.png"/></ng-container></ng-template>
+<ng-template #three><ng-container><img width="20" height=20 src="assets/emptyStar.png"/></ng-container></ng-template>
+<ng-container *ngIf="rating>=5; else lfive"><img width="20" height=20 src="assets/fullStar.png"/></ng-container>
+<ng-template #lfive> <ng-container *ngIf="rating==4.5; else four"><img width="20" height=20 src="assets/halfStar.png"/></ng-container></ng-template>
+<ng-template #four><ng-container><img width="20" height=20 src="assets/emptyStar.png"/></ng-container></ng-template>
