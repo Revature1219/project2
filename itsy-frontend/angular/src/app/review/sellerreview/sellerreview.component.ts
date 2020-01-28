@@ -11,10 +11,12 @@ export class SellerreviewComponent implements OnInit {
 
   @Input() seller: Seller;
   userReview:Review = { id:0,
-                        customerName:"",
+                        customer:null,
                         rating:0,
                         message:"",
-                        date:new Date()
+                        date:new Date(),
+                        seller:this.seller,
+                        item:null
                       };
   constructor() { }
 

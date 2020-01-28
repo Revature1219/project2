@@ -10,7 +10,7 @@ import { Seller } from './model/seller.class';
 })
 export class AppComponent {
   title = 'angular';
-    seller: Seller = {id:1,
+    /*seller: Seller = {id:1,
                 name:"garbo",
                 password: "",
                 conversations: [],
@@ -52,5 +52,5 @@ export class AppComponent {
                     date:null
                   }
                 ]
-              };
+              };*/
 }

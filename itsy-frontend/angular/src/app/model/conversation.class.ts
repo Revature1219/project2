@@ -1,11 +1,12 @@
 import { Customer } from './customer.class';
 import { Seller } from './seller.class';
 import { Message } from './message.class';
+import { User } from './user.class';
 
 export class Conversation {
     id : number;
-    customer : String;
-    seller : String;
+    customer : Customer;
+    seller : Seller;
     messages : Message[];
     read: boolean;
 }

@@ -9,7 +9,7 @@ export class Message {
     sentDate : Date;
     //     @OneToOne //(fetch = FetchType.LAZY) //keeping this eager because I'm paranoid. This will probably be ok to be Lazy, later.
     //     private User originator;
-    originator : String;
+    originator : User;
     //     private String contents;
     contents : string;
 

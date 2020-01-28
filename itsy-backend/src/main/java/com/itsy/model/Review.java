@@ -1,10 +1,12 @@
 package com.itsy.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,9 +28,12 @@ public class Review {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Customer customer;
 	private double rating;
 	private String message;
-
+	@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	private Seller seller;
+	@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	private Item item;
 }

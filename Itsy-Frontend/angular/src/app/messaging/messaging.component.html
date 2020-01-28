@@ -1,20 +1,23 @@
 <div tabindex="1">   
     <div *ngIf="showText">
         <div>
-            <button *ngFor="let conversation of conversations; index as i" (click)="changeConversation(i)">
-                {{conversation.seller}}   </button>
-        <div id='scrollMe'>
+            <div id='buttonContainer'>
+                <div id='buttons'>
+                    <button *ngFor="let conversation of conversations; index as i" (click)="changeConversation(i)"> test   </button>
+                </div>
+            </div>
+        <div id='scrollMe' #scrollMe>
             <ul class="reviews">
                 <li *ngFor="let message of conversations[currentConversation].messages">
-                  {{message.originator}}: {{message.contents}}
+                  {{message.originator.name}}: {{message.contents}}
                 </li>
               </ul>
         </div>
         <div>
-            <textarea #textArea (focus)="showContent()" (keyup.enter)="send()" [(ngModel)]="message" rows="2" cols="35"></textarea>
+            <textarea id="textArea" #textArea (focus)="showContent()" (keyup.enter)="send()" [(ngModel)]="message" rows="2"></textarea>
         </div>
         </div>
-        <div>
+        <div id='sendButtons'>
         <button (click)="send()">Send</button>
         <button (click)="cancel()">Cancel</button>
         </div>

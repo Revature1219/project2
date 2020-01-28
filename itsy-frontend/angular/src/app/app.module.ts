@@ -17,6 +17,9 @@ import { ItemreviewComponent } from './review/itemreview/itemreview.component';
 import { SellerreviewComponent } from './review/sellerreview/sellerreview.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component';
+import { MessagingService } from './messaging/messaging.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ReviewService } from './review/review.service';
 
 @NgModule({
   declarations: [
@@ -38,9 +41,10 @@ import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MessagingService,ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
