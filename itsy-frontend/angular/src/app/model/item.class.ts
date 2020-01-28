@@ -9,6 +9,8 @@ export class Item {
     name : string;
     // private double price;
     price : number;
+    // private byte[] image;
+    image : Uint8Array;
     // private String details;
     details : string;
 	// @OneToOne(fetch = FetchType.LAZY)
