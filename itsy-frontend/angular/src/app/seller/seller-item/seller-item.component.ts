@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from 'src/app/seller/item.model';
+import { Item } from 'src/app/model/item.class';
 
 @Component({
   selector: 'app-seller-item',
@@ -8,16 +8,21 @@ import { Item } from 'src/app/seller/item.model';
 })
 export class SellerItemComponent implements OnInit {
 
-  items: Item[] = [
-    new Item(1, 'one', 11.1, 'https://i.etsystatic.com/7129749/r/il/6a21e2/1327863914/il_1588xN.1327863914_qouf.jpg',
-      'about one', 'seller1', 'review1'),
-
-    new Item(2, 'two', 22.2, 'https://i.etsystatic.com/7129749/r/il/6a21e2/1327863914/il_1588xN.1327863914_qouf.jpg',
-      'about two', 'seller2', 'review2'),
-
-    new Item(3, 'three', 33.3, 'https://i.etsystatic.com/7129749/r/il/6a21e2/1327863914/il_1588xN.1327863914_qouf.jpg',
-      'about three', 'seller3', 'review3'),
-  ];
+  items: Item[] =
+    [
+      {
+        id: 1, name: '1_name', price: 1, image: null,
+        details: '1_details', seller: null, reviews: null
+      },
+      {
+        id: 2, name: '2_name', price: 2, image: null,
+        details: '2_details', seller: null, reviews: null
+      },
+      {
+        id: 3, name: '3_name', price: 3, image: null,
+        details: '3_details', seller: null, reviews: null
+      },
+    ];
 
   constructor() { }
 
