@@ -22,7 +22,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public List<Item> getAllItemsBySeller(Seller seller) {
-		return itemDao.findItemBySeller(seller);
+		return itemDao.findBySeller(seller);
 	}
 
 	@Override

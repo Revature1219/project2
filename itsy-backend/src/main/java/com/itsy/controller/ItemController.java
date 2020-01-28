@@ -21,36 +21,36 @@ import com.itsy.service.ItemService;
 public class ItemController {
 	
 	@Autowired
-	private ItemService sv;
+	private ItemService itemService;
 	
 	@GetMapping("/item")
 	public List<Item> getAllItems() {
-		return sv.getAllItems();
+		return itemService.getAllItems();
 	}
 
-	@GetMapping("/item/{seller}")
+	@GetMapping("/item/seller/{seller}")
 	public List<Item> getAllItemsBySeller(@PathVariable("seller") Seller seller) {
-		return sv.getAllItemsBySeller(seller);
+		return itemService.getAllItemsBySeller(seller);
 	}
-
+	
 	@GetMapping("/item/{id}")
 	public Item getItemById(@PathVariable("id") int id) {
-		return sv.getItemById(id);
+		return itemService.getItemById(id);
 	}
 
 	@PostMapping("/item")
 	public Item addItem(@RequestBody Item item) {
-		return sv.addItem(item);
+		return itemService.addItem(item);
 	}
 
 	@PutMapping("/item")
 	public Item updateItem(@RequestBody Item item) {
-		return sv.updateItem(item);
+		return itemService.updateItem(item);
 	}
 
 	@DeleteMapping("/item/{id}")
 	public void deleteItem(@PathVariable("id") int id) {
-		sv.deleteItem(id);
+		itemService.deleteItem(id);
 	}
 
 }
