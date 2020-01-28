@@ -24,18 +24,15 @@ export class ShopDisplayComponent implements OnInit {
 
   ngOnInit() {
     this.getSeller();
-    this.getSellerItems();
 
   }
 
   getSeller(){
     const name = this.route.snapshot.paramMap.get('sellername');
-    this.sellerService.getSeller(name).subscribe(seller => this.seller = seller);
-  }
-
-  getSellerItems(){
-    this.itemService.getItemsBySeller(this.seller.id).subscribe(items => this.items = items);
-
+    this.sellerService.getSeller(name).subscribe(seller => {
+      this.seller = seller;
+      this.itemService.getItemsBySeller(this.seller.id).subscribe(items => this.items = items);
+    });
   }
 
 }
