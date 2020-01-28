@@ -13,8 +13,6 @@ export class Item {
     image : Uint8Array;
     // private String details;
     details : string;
-    // private byte[] image;
-    image : Uint8Array;
 	// @OneToOne(fetch = FetchType.LAZY)
     // private Seller seller;
     seller : Seller;
