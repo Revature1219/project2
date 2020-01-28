@@ -11,7 +11,6 @@ import { SellerTransactionHistoryComponent } from './seller/seller-transaction-h
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerEditComponent } from './seller/seller-edit/seller-edit.component';
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
-import { SellerMessageComponent } from './seller/seller-message/seller-message.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
 import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
@@ -26,7 +25,6 @@ import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.compon
     SellerAddComponent,
     SellerEditComponent,
     SellerItemComponent,
-    SellerMessageComponent,
     MessagingComponent,
     ItemreviewComponent,
     SellerreivewComponent
