@@ -9,7 +9,7 @@ import { SellerEditComponent } from './seller/seller-edit/seller-edit.component'
 import { MessagingComponent } from './messaging/messaging.component';
 
 const routes: Routes = [
-  {path: '', component: AppComponent, pathMatch: 'full'},
+  // {path: '', component: AppComponent, pathMatch: 'full'},
   {path: 'seller', component: SellerComponent},
   {path: 'seller/add', component: SellerAddComponent},
   {path: 'seller/edit', component: SellerEditComponent},
