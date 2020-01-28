@@ -17,7 +17,7 @@ import com.itsy.model.Seller;
 import com.itsy.service.ItemService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ItemController {
 	
 	@Autowired
@@ -36,6 +36,11 @@ public class ItemController {
 	@GetMapping("/item/{id}")
 	public Item getItemById(@PathVariable("id") int id) {
 		return itemService.getItemById(id);
+	}
+	
+	@GetMapping("/item/name/{name}")
+	public Item getItemByName(@PathVariable("name") String name) {
+		return itemService.getItemByName(name);
 	}
 
 	@PostMapping("/item")

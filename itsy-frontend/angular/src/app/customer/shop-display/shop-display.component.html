@@ -1,0 +1,15 @@
+<app-customer-header></app-customer-header>
+<h1>{{seller.name}}</h1>
+<div class="container">
+    <div *ngFor="let item of items" class="row">
+        <div class="col-sm-6">
+            <img src="{{item.image}}">
+        </div>
+        <div class="col-sm-6">
+            {{item.name}}<br/>
+            {{item.price}}<br/>
+            {{item.details}}
+        </div>
+    </div>
+</div>
+<app-sellerreivew></app-sellerreivew>
