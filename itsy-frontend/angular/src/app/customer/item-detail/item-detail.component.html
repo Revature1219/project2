@@ -1,0 +1,40 @@
+<!--
+<br/>
+<h1>{{item.name}}</h1>
+<br/>
+<table>
+    <tr>
+        <td>
+            <img src={{item.image}}>
+        </td>
+        <td>
+            {{item.seller}}
+        </td>
+    </tr>
+</table>-->
+<app-customer-header></app-customer-header>
+<br/>
+<h1>{{item.name}}</h1>
+<br/>
+<div class="container no-padding">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src={{item.image}}>
+        </div>
+        <div class="col-lg-6">
+            <a class="font-weight-bolder" href='shop/{{item.seller.name}}'>{{item.seller.name}}</a>
+            <br/><br/>
+            {{item.price}}
+            <br/><br/>
+            {{item.details}}
+            <br/><br/>
+            <button class="btn btn-outline-success mx-2" type="submit">add to cart </button>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="row">
+        <div class="col-lg-12">
+            {{item.reviews}}
+        </div>
+    </div>
+</div>

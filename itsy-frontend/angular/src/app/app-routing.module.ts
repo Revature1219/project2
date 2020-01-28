@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerEditComponent } from './seller/seller-edit/seller-edit.component';
 import { SellerMessageComponent } from './seller/seller-message/seller-message.component';
+import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
+import { ItemDetailComponent } from './customer/item-detail/item-detail.component';
+import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
+import { OrderHistoryComponent } from './customer/order-history/order-history.component';
 
 const routes: Routes = [
   {path: '', component: AppComponent, pathMatch: 'full'},
@@ -16,6 +20,10 @@ const routes: Routes = [
   {path: 'seller/message', component: SellerMessageComponent},
   {path: 'seller/pending-order', component: SellerPendingOrderComponent},
   {path: 'seller/transaction-history', component: SellerTransactionHistoryComponent},
+  {path: 'customer', component: CustomerHomeComponent},
+  {path: 'item/:id', component: ItemDetailComponent},
+  {path: 'shop/:sellername', component: ShopDisplayComponent},
+  {path: 'customer/history', component: OrderHistoryComponent},
 ];
 
 @NgModule({

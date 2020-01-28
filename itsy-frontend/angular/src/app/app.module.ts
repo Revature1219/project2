@@ -15,6 +15,13 @@ import { SellerMessageComponent } from './seller/seller-message/seller-message.c
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
 import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
+import { CustomerHeaderComponent } from './customer/customer-header/customer-header.component';
+import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
+import { ItemDetailComponent } from './customer/item-detail/item-detail.component';
+import { ItemDisplayComponent } from './customer/item-display/item-display.component';
+import { OrderHistoryComponent } from './customer/order-history/order-history.component';
+import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,12 +36,19 @@ import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.compon
     SellerMessageComponent,
     MessagingComponent,
     ItemreviewComponent,
-    SellerreivewComponent
+    SellerreivewComponent,
+    CustomerHeaderComponent,
+    CustomerHomeComponent,
+    ItemDetailComponent,
+    ItemDisplayComponent,
+    OrderHistoryComponent,
+    ShopDisplayComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

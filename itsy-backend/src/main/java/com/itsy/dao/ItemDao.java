@@ -12,5 +12,7 @@ import com.itsy.model.Seller;
 public interface ItemDao extends JpaRepository<Item, Integer>{
 
 	public List<Item> findBySeller(Seller seller);
+
+	public Item findByName(String name);
 	
 }

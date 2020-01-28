@@ -18,5 +18,7 @@ public interface ItemService {
 	public Item updateItem(Item item);
 	
 	public void deleteItem(int id);
+
+	public Item getItemByName(String name);
 	
 }
