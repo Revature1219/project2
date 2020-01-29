@@ -31,7 +31,7 @@ export class SellerEditComponent implements OnInit {
   }
 
   gotoItemList(): void {
-    this.router.navigate(['/item']);
+    this.router.navigate(['/seller']);
   }
 
 }

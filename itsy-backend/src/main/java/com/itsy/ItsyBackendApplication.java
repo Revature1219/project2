@@ -23,10 +23,10 @@ public class ItsyBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ItsyBackendApplication.class, args);
 	}
-	
 
 	@Bean
-	public CommandLineRunner sellerDemoData(SellerServiceImpl sellerService, ItemServiceImpl itemService, CustomerServiceImpl customerService) {
+	public CommandLineRunner sellerDemoData(SellerServiceImpl sellerService, ItemServiceImpl itemService,
+			CustomerServiceImpl customerService) {
 		return args -> {
 			System.out.println("Generating the Seller info..");
 			Seller seller;
@@ -50,7 +50,7 @@ public class ItsyBackendApplication {
 			seller.setConversations(new ArrayList<Conversation>());
 			seller.setReviews(new ArrayList<Review>());
 			sellerService.addSeller(seller);
-			
+
 			System.out.println("Generating the Customer info...");
 			Customer customer;
 			int cid = 1;
@@ -72,44 +72,39 @@ public class ItsyBackendApplication {
 			customer.setName(cid++ + "customer");
 			customer.setPassword("password");
 			customerService.addCustomer(customer);
-			
 
 			System.out.println("Generating the Item info..");
 			seller = sellerService.getAllSellers().get(0);
 			Item item;
-			byte[] image = { 0b00000000, 0b00000001, 0b00000001, 0b00000001 };
+			id = 7;
+//			byte[] image = { 0b00000000, 0b00000001, 0b00000001, 0b00000001 };
 
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);

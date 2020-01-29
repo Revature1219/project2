@@ -12,23 +12,24 @@ export class ItemService {
 
   private url: string;
 
-  public getItems():Observable<Item[]>{
+  public getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(this.url);
   }
 
-  getItem(id: number): Observable<Item>{
-    return this.http.get<Item>(this.url+'/'+id);
+  getItem(id: number): Observable<Item> {
+    return this.http.get<Item>(this.url + '/' + id);
   }
 
-  getItemByName(name: string): Observable<Item>{
-    return this.http.get<Item>(this.url+'/name/'+name);
+  getItemByName(name: string): Observable<Item> {
+    return this.http.get<Item>(this.url + '/name/' + name);
   }
 
-  getItemsBySeller(id: number): Observable<Item[]>{
-    return this.http.get<Item[]>(this.url+'/seller/'+id);
+  getItemsBySeller(id: number): Observable<Item[]> {
+    return this.http.get<Item[]>(this.url + '/seller/' + id);
   }
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.url = "http://localhost:9001/item";
   }
+
 }

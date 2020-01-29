@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/model/cart.class';
 
 @Component({
   selector: 'app-seller-pending-order',
@@ -7,10 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellerPendingOrderComponent implements OnInit {
 
-  // Getting Status = pending
-  // pendingOrders: Order[] = [
-  //   new Order (),
-  // ];
+  private order: Cart[];
 
   constructor() { }
 

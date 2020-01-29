@@ -11,10 +11,12 @@ export class SellerService {
   private url: string;
   private seller: Seller;
 
-  getSeller(name: string): Observable<Seller>{
-    return this.http.get<Seller>(this.url + '/'+name);
+  getSeller(name: string): Observable<Seller> {
+    return this.http.get<Seller>(this.url + '/' + name);
   }
-  constructor(private http: HttpClient) { 
+
+  constructor(private http: HttpClient) {
     this.url = "http://localhost:9001/seller";
   }
+
 }
