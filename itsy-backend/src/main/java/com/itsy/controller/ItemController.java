@@ -17,7 +17,7 @@ import com.itsy.model.Seller;
 import com.itsy.service.ItemService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ItemController {
 	
 	@Autowired

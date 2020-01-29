@@ -14,7 +14,7 @@ import com.itsy.model.Seller;
 import com.itsy.service.SellerService;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SellerController {
 
 	@Autowired
@@ -25,9 +25,9 @@ public class SellerController {
 		return sellerService.getAllSellers();
 	}
 
-	@GetMapping("/seller/{name}")
-	public Seller getSellerByName(@PathVariable("name") String name) {
-		return sellerService.getSellerByName(name);
+	@GetMapping("/seller/{id}")
+	public Seller getSellerById(@PathVariable("id") int id) {
+		return sellerService.getSellerById(id);
 	}
 
 	@PostMapping("/seller")

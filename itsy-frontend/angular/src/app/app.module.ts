@@ -14,6 +14,10 @@ import { SellerItemComponent } from './seller/seller-item/seller-item.component'
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
 import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
+import { from } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
+import { ItemService } from './service/item.service';
+import { SellerService } from './service/seller.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +36,10 @@ import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.compon
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ItemService, SellerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

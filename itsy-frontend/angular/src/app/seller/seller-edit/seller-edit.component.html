@@ -7,15 +7,15 @@
             <form>
                 <div class="form-group">
                     <label for="itemName">Item Name</label>
-                    <input mdbInput type="text" class="form-control" name="itemName" required>
+                    <input mdbInput [(ngModel)]="item.name" value="{{item.name}}" type="text" class="form-control" name="itemName" required>
                 </div>
                 <div class="form-group">
                     <label for="itemPrice">Item Price</label>
-                    <input mdbInput type="number" class="form-control" name="itemPrice" required>
+                    <input mdbInput [(ngModel)]="item.price" value="{{item.price}}" type="number" class="form-control" name="itemPrice" required>
                 </div>
                 <div class="form-group">
                     <label for="itemDetails">Item Details</label>
-                    <textarea mdbInput type="text" class="form-control" name="itemDetails" required></textarea>
+                    <textarea mdbInput [(ngModel)]="item.details" value="{{item.details}}" type="text" class="form-control" name="itemDetails" required></textarea>
                 </div>
                 <label for="itemImage">Item Image</label>
                 <div class="custom-file mb-4">
@@ -23,8 +23,8 @@
                     <div id="file-upload-filename"></div>
                 </div>
                 <div class="float-right">
-                    <button type="submit" mdbBtn class="btn btn-success mx-2" style="width: 100px;">Save</button>
-                    <a href="#" type="button" class="btn btn-danger" style="width: 100px;">Delete</a>
+                    <button type="submit" (click)="updateItem()" mdbBtn class="btn btn-success mx-2" style="width: 100px;">Save</button>
+                    <button type="submit" (click)="deleteItem()" mdbBtn class="btn btn-danger mx-2" style="width: 100px;">Delete</button>
                 </div>
             </form>
         </div>

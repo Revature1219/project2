@@ -19,14 +19,19 @@ public class SellerServiceImpl implements SellerService {
 		return sellerDao.findAll();
 	}
 
-	@Override
-	public Seller getSellerByName(String name) {
-		return sellerDao.findByName(name);
-	}
+//	@Override
+//	public Seller getSellerByName(String name) {
+//		return sellerDao.findByName(name);
+//	}
 
 	@Override
 	public Seller addSeller(Seller seller) {
 		return sellerDao.save(seller);
+	}
+
+	@Override
+	public Seller getSellerById(int id) {
+		return sellerDao.findById(id).get();
 	}
 	
 }

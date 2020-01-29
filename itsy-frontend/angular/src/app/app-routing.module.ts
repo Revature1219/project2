@@ -12,7 +12,7 @@ const routes: Routes = [
   // {path: '', component: AppComponent, pathMatch: 'full'},
   {path: 'seller', component: SellerComponent},
   {path: 'seller/add', component: SellerAddComponent},
-  {path: 'seller/edit', component: SellerEditComponent},
+  {path: 'seller/edit/:id', component: SellerEditComponent},
   {path: 'seller/message', component: MessagingComponent},
   {path: 'seller/pending-order', component: SellerPendingOrderComponent},
   {path: 'seller/transaction-history', component: SellerTransactionHistoryComponent},
