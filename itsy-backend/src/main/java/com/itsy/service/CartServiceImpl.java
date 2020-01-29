@@ -15,15 +15,18 @@ public class CartServiceImpl implements CartService {
 
 	@Autowired
 	CartDao cartDao;
+	@Autowired
+	Status status;
 
+	// used for seller-pending-orders || history-order
 	@Override
-	public List<Cart> getCartsBySeller(Seller seller) {
-		return cartDao.findBySeller(seller);
+	public List<Cart> getCartsBySellerOrderByStatus(Seller seller) {
+		return cartDao.findBySellerOrderByStatusAsc(seller);
 	}
 
 	@Override
-	public List<Cart> getCartsByStatus(Status status) {
-		return cartDao.findByStatus(status);
+	public Cart addCart(Cart cart) {
+		return cartDao.save(cart);
 	}
 
 }

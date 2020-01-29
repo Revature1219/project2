@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Bean;
 
 import com.itsy.model.Cart;
 import com.itsy.model.Conversation;
+import com.itsy.model.Customer;
 import com.itsy.model.Item;
 import com.itsy.model.Review;
 import com.itsy.model.Seller;
+import com.itsy.service.CartServiceImpl;
+import com.itsy.service.CustomerServiceImpl;
 import com.itsy.service.ItemServiceImpl;
 import com.itsy.service.SellerServiceImpl;
-import com.itsy.model.Customer;
-import com.itsy.service.CustomerServiceImpl;
 
 @SpringBootApplication
 public class ItsyBackendApplication {
@@ -26,7 +27,7 @@ public class ItsyBackendApplication {
 
 	@Bean
 	public CommandLineRunner sellerDemoData(SellerServiceImpl sellerService, ItemServiceImpl itemService,
-			CustomerServiceImpl customerService) {
+			CustomerServiceImpl customerService, CartServiceImpl cartService) {
 		return args -> {
 			System.out.println("Generating the Seller info..");
 			Seller seller;

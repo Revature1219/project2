@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.itsy.model.Cart;
 import com.itsy.model.Seller;
-import com.itsy.model.Status;
 import com.itsy.service.CartService;
 import com.itsy.service.SellerService;
 
@@ -26,13 +25,13 @@ public class SellerController {
 	private CartService cartService;
 	
 	@GetMapping("/cart/seller/{seller}")
-	public List<Cart>getCartsBySeller(Seller seller) {
-		return cartService.getCartsBySeller(seller);
+	public List<Cart>getCartsBySellerOrderByStatus(Seller seller) {
+		return cartService.getCartsBySellerOrderByStatus(seller);
 	}
 	
-	@GetMapping("/cart/status/{status}")
-	public List<Cart>getCartsByStatus(Status status) {
-		return cartService.getCartsByStatus(status);
+	@PostMapping("/cart")
+	public Cart addCart(@RequestBody Cart cart) {
+		return cartService.addCart(cart);
 	}
 
 	@GetMapping("/seller")
