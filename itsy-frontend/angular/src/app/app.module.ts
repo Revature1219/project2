@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SellerComponent } from './seller/seller.component';
 import { SellerHeaderComponent } from './seller/seller-header/seller-header.component';
-import { SellerPendingOrderComponent } from './seller/seller-pending-order/seller-pending-order.component';
-import { SellerTransactionHistoryComponent } from './seller/seller-transaction-history/seller-transaction-history.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerEditComponent } from './seller/seller-edit/seller-edit.component';
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
@@ -24,14 +22,13 @@ import { ItemDisplayComponent } from './customer/item-display/item-display.compo
 import { OrderHistoryComponent } from './customer/order-history/order-history.component';
 import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SellerOrderComponent } from './seller/seller-order/seller-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SellerComponent,
     SellerHeaderComponent,
-    SellerPendingOrderComponent,
-    SellerTransactionHistoryComponent,
     SellerAddComponent,
     SellerEditComponent,
     SellerItemComponent,
@@ -43,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     ItemDetailComponent,
     ItemDisplayComponent,
     OrderHistoryComponent,
-    ShopDisplayComponent
+    ShopDisplayComponent,
+    SellerOrderComponent
   ],
   imports: [
     BrowserModule,
