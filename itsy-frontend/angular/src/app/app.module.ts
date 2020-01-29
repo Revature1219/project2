@@ -15,9 +15,15 @@ import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
 import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
 import { from } from 'rxjs';
-import { HttpClientModule } from '@angular/common/http';
 import { ItemService } from './service/item.service';
 import { SellerService } from './service/seller.service';
+import { CustomerHeaderComponent } from './customer/customer-header/customer-header.component';
+import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
+import { ItemDetailComponent } from './customer/item-detail/item-detail.component';
+import { ItemDisplayComponent } from './customer/item-display/item-display.component';
+import { OrderHistoryComponent } from './customer/order-history/order-history.component';
+import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { SellerService } from './service/seller.service';
     SellerItemComponent,
     MessagingComponent,
     ItemreviewComponent,
-    SellerreivewComponent
+    SellerreivewComponent,
+    CustomerHeaderComponent,
+    CustomerHomeComponent,
+    ItemDetailComponent,
+    ItemDisplayComponent,
+    OrderHistoryComponent,
+    ShopDisplayComponent
   ],
   imports: [
     BrowserModule,

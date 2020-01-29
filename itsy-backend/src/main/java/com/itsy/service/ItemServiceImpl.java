@@ -29,6 +29,11 @@ public class ItemServiceImpl implements ItemService {
 	public Item getItemById(int id) {
 		return itemDao.findById(id).get();
 	}
+	
+	@Override
+	public Item getItemByName(String name) {
+		return itemDao.findByName(name);
+	}
 
 	@Override
 	public Item addItem(Item item) {

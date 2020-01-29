@@ -37,6 +37,11 @@ public class ItemController {
 	public Item getItemById(@PathVariable("id") int id) {
 		return itemService.getItemById(id);
 	}
+	
+	@GetMapping("/item/name/{name}")
+	public Item getItemByName(@PathVariable("name") String name) {
+		return itemService.getItemByName(name);
+	}
 
 	@PostMapping("/item")
 	public Item addItem(@RequestBody Item item) {
