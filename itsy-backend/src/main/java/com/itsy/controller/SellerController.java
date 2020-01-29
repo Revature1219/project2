@@ -25,9 +25,9 @@ public class SellerController {
 		return sellerService.getAllSellers();
 	}
 
-	@GetMapping("/seller/{name}")
-	public Seller getSellerByName(@PathVariable("name") String name) {
-		return sellerService.getSellerByName(name);
+	@GetMapping("/seller/{id}")
+	public Seller getSellerById(@PathVariable("id") int id) {
+		return sellerService.getSellerById(id);
 	}
 
 	@PostMapping("/seller")

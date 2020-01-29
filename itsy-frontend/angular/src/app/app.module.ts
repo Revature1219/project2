@@ -11,10 +11,12 @@ import { SellerTransactionHistoryComponent } from './seller/seller-transaction-h
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerEditComponent } from './seller/seller-edit/seller-edit.component';
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
-import { SellerMessageComponent } from './seller/seller-message/seller-message.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
 import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
+import { from } from 'rxjs';
+import { ItemService } from './service/item.service';
+import { SellerService } from './service/seller.service';
 import { CustomerHeaderComponent } from './customer/customer-header/customer-header.component';
 import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
 import { ItemDetailComponent } from './customer/item-detail/item-detail.component';
@@ -33,7 +35,6 @@ import { HttpClientModule } from '@angular/common/http';
     SellerAddComponent,
     SellerEditComponent,
     SellerItemComponent,
-    SellerMessageComponent,
     MessagingComponent,
     ItemreviewComponent,
     SellerreivewComponent,
@@ -50,7 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ItemService, SellerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

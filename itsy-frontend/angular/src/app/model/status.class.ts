@@ -1,12 +1,11 @@
 export class Status {
-    
+
     // private int id;
-    id : number;
+    id: number;
     // private Date addedToCart;
-    addedToCart : Date;
+    addedToCart: Date;
     // private Date ordered;
-    ordered : Date;
+    ordered: Date;
     // private Date shipped;
-    shipped : Date;
-    
+    shipped: Date;
 }
