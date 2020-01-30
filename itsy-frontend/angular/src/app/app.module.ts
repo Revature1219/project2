@@ -13,10 +13,13 @@ import { SellerEditComponent } from './seller/seller-edit/seller-edit.component'
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
-import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
+import { SellerreviewComponent } from './review/sellerreview/sellerreview.component';
+import { ReviewComponent } from './review/review.component';
+import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component';
 import { from } from 'rxjs';
 import { ItemService } from './service/item.service';
 import { SellerService } from './service/seller.service';
+import { ReviewService } from './service/review.service';
 import { CustomerHeaderComponent } from './customer/customer-header/customer-header.component';
 import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
 import { ItemDetailComponent } from './customer/item-detail/item-detail.component';
@@ -37,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     SellerItemComponent,
     MessagingComponent,
     ItemreviewComponent,
-    SellerreivewComponent,
+    SellerreviewComponent,
+    ReviewComponent,
+    ReviewstarsComponent,
     CustomerHeaderComponent,
     CustomerHomeComponent,
     ItemDetailComponent,
@@ -51,7 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ItemService, SellerService],
+  providers: [ItemService, SellerService,ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

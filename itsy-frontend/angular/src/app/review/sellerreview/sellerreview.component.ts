@@ -1,26 +1,30 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { Seller } from 'src/app/model/seller.class';
-import { Review } from 'src/app/model/review.class';
+import { SellerReview } from 'src/app/model/sellerReview.class';
+import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
   selector: 'app-sellerreview',
   templateUrl: './sellerreview.component.html',
   styleUrls: ['./sellerreview.component.css']
 })
-export class SellerreviewComponent implements OnInit {
+export class SellerreviewComponent implements OnChanges {
 
   @Input() seller: Seller;
-  userReview:Review = { id:0,
+  reviews: SellerReview[];
+  userReview:SellerReview = { id:0,
                         customer:null,
                         rating:0,
                         message:"",
                         date:new Date(),
-                        seller:this.seller,
-                        item:null
+                        seller:this.seller
                       };
-  constructor() { }
+  constructor(private reviewService: ReviewService) { }
 
-  ngOnInit() {
+  ngOnChanges() {
+    this.reviewService.getReviewsbySeller(this.seller).subscribe(
+            reviews => this.reviews = reviews
+    );
   }
 
   submitReview(){
