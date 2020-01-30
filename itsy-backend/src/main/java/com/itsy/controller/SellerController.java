@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itsy.model.Cart;
 import com.itsy.model.Seller;
+import com.itsy.service.CartService;
 import com.itsy.service.SellerService;
 
 @RestController
@@ -19,6 +21,18 @@ public class SellerController {
 
 	@Autowired
 	private SellerService sellerService;
+	@Autowired
+	private CartService cartService;
+	
+	@GetMapping("/cart/seller/{seller}")
+	public List<Cart>getCartsBySellerOrderByStatus(Seller seller) {
+		return cartService.getCartsBySellerOrderByStatus(seller);
+	}
+	
+	@PostMapping("/cart")
+	public Cart addCart(@RequestBody Cart cart) {
+		return cartService.addCart(cart);
+	}
 
 	@GetMapping("/seller")
 	public List<Seller> getAllSellers() {

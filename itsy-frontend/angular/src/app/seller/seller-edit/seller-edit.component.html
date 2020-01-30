@@ -7,24 +7,19 @@
             <form>
                 <div class="form-group">
                     <label for="itemName">Item Name</label>
-                    <input mdbInput [(ngModel)]="item.name" value="{{item.name}}" type="text" class="form-control" name="itemName" required>
+                    <input [(ngModel)]="item.name" name="itemName" value="{{item.name}}" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="itemPrice">Item Price</label>
-                    <input mdbInput [(ngModel)]="item.price" value="{{item.price}}" type="number" class="form-control" name="itemPrice" required>
+                    <input [(ngModel)]="item.price" name="price" value="{{item.price}}" type="number" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="itemDetails">Item Details</label>
-                    <textarea mdbInput [(ngModel)]="item.details" value="{{item.details}}" type="text" class="form-control" name="itemDetails" required></textarea>
-                </div>
-                <label for="itemImage">Item Image</label>
-                <div class="custom-file mb-4">
-                    <input type="file" id="file-upload" name="itemImage" required accept="image/*">
-                    <div id="file-upload-filename"></div>
+                    <textarea [(ngModel)]="item.details" name="details" value="{{item.details}}" type="text" class="form-control" required></textarea>
                 </div>
                 <div class="float-right">
-                    <button type="submit" (click)="updateItem()" mdbBtn class="btn btn-success mx-2" style="width: 100px;">Save</button>
-                    <button type="submit" (click)="deleteItem()" mdbBtn class="btn btn-danger mx-2" style="width: 100px;">Delete</button>
+                    <button type="submit" (click)="updateItem()" class="btn btn-success mx-2" style="width: 100px;">Save</button>
+                    <button type="submit" (click)="deleteItem()" class="btn btn-danger" style="width: 100px;">Delete</button>
                 </div>
             </form>
         </div>

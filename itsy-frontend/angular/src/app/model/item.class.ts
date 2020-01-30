@@ -10,7 +10,7 @@ export class Item {
     // private double price;
     price: number;
     // @Lob
-    image: Uint8Array;
+    // image: Uint8Array;
     // private String details;
     details: string;
     // @OneToOne(fetch = FetchType.LAZY)

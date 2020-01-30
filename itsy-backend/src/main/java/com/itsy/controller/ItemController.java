@@ -3,6 +3,7 @@ package com.itsy.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +49,7 @@ public class ItemController {
 		return itemService.addItem(item);
 	}
 
-	@PutMapping("/item")
+	@PutMapping(path = "/item", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Item updateItem(@RequestBody Item item) {
 		return itemService.updateItem(item);
 	}
