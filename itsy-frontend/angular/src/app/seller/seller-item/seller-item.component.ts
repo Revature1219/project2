@@ -17,15 +17,15 @@ export class SellerItemComponent implements OnInit {
   // items: Item[] =
   //   [
   //     {
-  //       id: 1, name: '1_name', price: 1, image: null,
+  //       id: 1, name: '1_name', price: 1,
   //       details: '1_details', seller: null, reviews: null
   //     },
   //     {
-  //       id: 2, name: '2_name', price: 2, image: null,
+  //       id: 2, name: '2_name', price: 2,
   //       details: '2_details', seller: null, reviews: null
   //     },
   //     {
-  //       id: 3, name: '3_name', price: 3, image: null,
+  //       id: 3, name: '3_name', price: 3,
   //       details: '3_details', seller: null, reviews: null
   //     },
   //   ];

@@ -15,8 +15,6 @@ public class CartServiceImpl implements CartService {
 
 	@Autowired
 	CartDao cartDao;
-	@Autowired
-	Status status;
 
 	// used for seller-pending-orders || history-order
 	@Override
