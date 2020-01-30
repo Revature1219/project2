@@ -43,19 +43,19 @@ public class ItsyBackendApplication {
 			Customer customer;
 			int cid = 1;
 			customer = new Customer();
-			customer.setCarts(new ArrayList<Cart>());
+			//customer.setCarts(new ArrayList<Cart>());
 			customer.setConversations(new ArrayList<Conversation>());
 			customer.setName(cid++ + "customer");
 			customer.setPassword("password");
 			customerService.addCustomer(customer);
 			customer = new Customer();
-			customer.setCarts(new ArrayList<Cart>());
+			//customer.setCarts(new ArrayList<Cart>());
 			customer.setConversations(new ArrayList<Conversation>());
 			customer.setName(cid++ + "customer");
 			customer.setPassword("password");
 			customerService.addCustomer(customer);
 			customer = new Customer();
-			customer.setCarts(new ArrayList<Cart>());
+			//customer.setCarts(new ArrayList<Cart>());
 			customer.setConversations(new ArrayList<Conversation>());
 			customer.setName(cid++ + "customer");
 			customer.setPassword("password");
@@ -70,16 +70,6 @@ public class ItsyBackendApplication {
 			seller.setPassword("password");
 			seller.setConversations(new ArrayList<Conversation>());
 			sellerService.addSeller(seller);
-			seller = new Seller();
-			seller.setName(id++ + "_namio");
-			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			sellerService.addSeller(seller);
-			seller = new Seller();
-			seller.setName(id++ + "_namio");
-			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			sellerService.addSeller(seller);
 			SellerReview sellerreview=new SellerReview(seller);
 			sellerreview.setId(1);
 			sellerreview.setCustomer(customer);
@@ -88,6 +78,17 @@ public class ItsyBackendApplication {
 			sellerreview.setDate(new Date());
 			sellerreview.setSeller(seller);
 			reviewService.addSellerReview(sellerreview);
+			seller = new Seller();
+			seller.setName(id++ + "_namio");
+			seller.setPassword("password");
+			seller.setConversations(new ArrayList<Conversation>());
+			sellerService.addSeller(seller);
+			seller = new Seller();
+			seller.setName(id++ + "_namio");
+			seller.setPassword("password");
+			seller.setConversations(new ArrayList<Conversation>());
+			sellerService.addSeller(seller);
+			
 			//seller.setReviews(reviews);		
 			
 			

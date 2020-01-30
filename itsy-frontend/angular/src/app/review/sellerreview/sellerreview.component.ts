@@ -25,9 +25,10 @@ export class SellerreviewComponent implements OnChanges {
     this.reviewService.getReviewsbySeller(this.seller).subscribe(
             reviews => this.reviews = reviews
     );
+    this.userReview.seller=this.seller;
   }
 
   submitReview(){
-    alert(this.userReview.rating);
+    this.reviewService.addSellerReview(this.userReview).subscribe();
   }
 }

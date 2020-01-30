@@ -26,6 +26,7 @@ export class ItemreviewComponent implements OnChanges {
     this.reviewService.getReviewsbyItem(this.item).subscribe(
             reviews => this.reviews = reviews
     );
+    this.userReview.item=this.item;
   }
 
   submitReview(){

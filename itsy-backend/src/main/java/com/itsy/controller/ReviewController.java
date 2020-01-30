@@ -15,6 +15,7 @@ import com.itsy.model.ItemReview;
 import com.itsy.model.Review;
 import com.itsy.model.Seller;
 import com.itsy.model.SellerReview;
+import com.itsy.service.CustomerServiceImpl;
 import com.itsy.service.ReviewService;
 
 @RestController
@@ -35,6 +36,8 @@ public class ReviewController {
 	}
 	@PostMapping("/reviews/seller/")
 	public SellerReview addSellerReview(@RequestBody SellerReview review) {
+		review.setCustomer(new CustomerServiceImpl().getCustomerById(1));
+		System.out.println(review.toString());
 		return reviewService.addSellerReview(review);
 	}
 

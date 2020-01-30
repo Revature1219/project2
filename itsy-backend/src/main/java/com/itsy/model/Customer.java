@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -24,7 +24,7 @@ import lombok.ToString;
 @PrimaryKeyJoinColumn(name="id")
 public class Customer extends User {
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	private List<Cart> carts;
+	//@OneToMany(fetch = FetchType.LAZY)
+	//private List<Cart> carts;
 
 }

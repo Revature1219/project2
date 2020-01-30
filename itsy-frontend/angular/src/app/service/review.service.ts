@@ -19,12 +19,13 @@ export class ReviewService {
     
    }
    public getReviewsbySeller(seller:Seller): Observable<SellerReview[]>{
-    return this.http.get<SellerReview[]>(this.url);
+    return this.http.get<SellerReview[]>(this.url+"/seller/"+seller.id);
    }
    public addItemReview(itemReview:ItemReview): Observable<ItemReview>{
     return this.http.post<ItemReview>(this.url+"/item/", itemReview);
    }
    public addSellerReview(sellerReview:SellerReview): Observable<SellerReview>{
+     console.log(sellerReview);
     return this.http.post<SellerReview>(this.url+"/seller/", sellerReview);
    }
 

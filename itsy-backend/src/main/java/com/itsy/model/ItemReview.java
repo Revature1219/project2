@@ -7,14 +7,12 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -23,4 +21,8 @@ import lombok.ToString;
 public class ItemReview extends Review{
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Item item;
+	public ItemReview(int id, Customer customer, double rating, String message, Date date, Item item) {
+		super(id, customer, rating, message, date);
+		this.item=item;
+	}
 }

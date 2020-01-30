@@ -26,7 +26,7 @@ import javax.persistence.InheritanceType;
 @ToString
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Entity
-public abstract class Review {
+public class Review {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
