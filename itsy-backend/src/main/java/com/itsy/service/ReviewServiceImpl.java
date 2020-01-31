@@ -1,5 +1,6 @@
 package com.itsy.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	@Override
 	public ItemReview addItemReview(ItemReview itemReview) {
+		itemReview.setDate(new Date());
 		return itemReviewDao.save(itemReview);
 	}
 
@@ -33,6 +35,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public SellerReview addSellerReview(SellerReview sellerReview) {
+		sellerReview.setDate(new Date());
 		return sellerReviewDao.save(sellerReview);
 	}
 

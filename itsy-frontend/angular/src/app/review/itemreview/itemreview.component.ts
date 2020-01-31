@@ -30,6 +30,7 @@ export class ItemreviewComponent implements OnChanges {
   }
 
   submitReview(){
+    this.userReview.date=new Date();
     this.reviewService.addItemReview(this.userReview).subscribe();
   }
 }
