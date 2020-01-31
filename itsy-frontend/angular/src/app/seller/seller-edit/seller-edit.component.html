@@ -6,15 +6,32 @@
         <div class="col-md-8">
             <div class="form-group">
                 <label for="name">Item Name</label>
-                <input [(ngModel)]="item.name" name="name" value="{{item.name}}" type="text" class="form-control" required>
+                <input [(ngModel)]="item.name" name="name" 
+                value="{{item.name}}" type="text" 
+                class="form-control"
+                #name="ngModel" 
+                required>
+                <span class="help-block" *ngIf="name.errors?.required">The field is required.</span>
             </div>
             <div class="form-group">
                 <label for="price">Item Price</label>
-                <input [(ngModel)]="item.price" name="price" value="{{item.price}}" type="number" class="form-control" required>
+                <input name="price" 
+                [(ngModel)]="item.price" 
+                value="{{item.price}}" type="number" 
+                class="form-control" 
+                #price="ngModel" 
+                required pattern="^\d*(\.\d{2})?$">
+                <span class="help-block" *ngIf="price.errors?.pattern">The price must have zero or two decimal places.</span>
+                <span class="help-block" *ngIf="price.errors?.required">The field is required.</span>
             </div>
             <div class="form-group">
                 <label for="details">Item Details</label>
-                <textarea [(ngModel)]="item.details" name="details" value="{{item.details}}" type="text" class="form-control" required></textarea>
+                <textarea [(ngModel)]="item.details" 
+                name="details" value="{{item.details}}" 
+                type="text" class="form-control" 
+                #details="ngModel" 
+                required></textarea>
+                <span class="help-block" *ngIf="details.errors?.required">The field is required.</span>
             </div>
             <div class="float-right">
                 <button type="submit" (click)="updateItem()" class="btn btn-success mx-2" style="width: 100px;">Save</button>

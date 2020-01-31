@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +29,13 @@ public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
+	@NotEmpty(message = "The field is required.")
 	private String name;
+//	@Pattern(regexp="^\\d*(\\.\\d{2})?$")
+	@Min(0)
+	@NotNull(message = "The field is required.")
 	private double price;
+	@NotEmpty(message = "The field is required.")
 	private String details;
 	@ManyToOne
 	private Seller seller;
