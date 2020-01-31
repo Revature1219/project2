@@ -2,8 +2,9 @@ package com.itsy.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 	
-	@GetMapping("/item")
+    @GetMapping("/item")
 	public List<Item> getAllItems() {
 		return itemService.getAllItems();
 	}
@@ -45,12 +46,12 @@ public class ItemController {
 	}
 
 	@PostMapping("/item")
-	public Item addItem(@RequestBody Item item) {
+	public Item addItem(@Valid @RequestBody Item item) {
 		return itemService.addItem(item);
 	}
 
-	@PutMapping(path = "/item", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Item updateItem(@RequestBody Item item) {
+	@PutMapping("/item")
+	public Item updateItem(@Valid @RequestBody Item item) {
 		return itemService.updateItem(item);
 	}
 

@@ -11,7 +11,6 @@ import com.itsy.model.Cart;
 import com.itsy.model.Conversation;
 import com.itsy.model.Customer;
 import com.itsy.model.Item;
-import com.itsy.model.Review;
 import com.itsy.model.Seller;
 import com.itsy.service.CartServiceImpl;
 import com.itsy.service.CustomerServiceImpl;
@@ -36,22 +35,12 @@ public class ItsyBackendApplication {
 			seller = new Seller();
 			seller.setName(id++ + "_namio");
 			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			seller.setReviews(new ArrayList<Review>());
 			sellerService.addSeller(seller);
 			seller = new Seller();
 			seller.setName(id++ + "_namio");
 			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			seller.setReviews(new ArrayList<Review>());
 			sellerService.addSeller(seller);
-			seller = new Seller();
-			seller.setName(id++ + "_namio");
-			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			seller.setReviews(new ArrayList<Review>());
-			sellerService.addSeller(seller);
-
+			
 			System.out.println("Generating the Customer info...");
 			Customer customer;
 			int cid = 1;
@@ -77,8 +66,7 @@ public class ItsyBackendApplication {
 			System.out.println("Generating the Item info..");
 			seller = sellerService.getAllSellers().get(0);
 			Item item;
-			id = 7;
-//			byte[] image = { 0b00000000, 0b00000001, 0b00000001, 0b00000001 };
+			id = 6;
 
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
