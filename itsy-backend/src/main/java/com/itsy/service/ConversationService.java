@@ -10,5 +10,6 @@ import com.itsy.model.User;
 
 public interface ConversationService {
 	public List<Message> getMessages(int id);
-	public List<Conversation> getConversationsbyUser(User u);
+	public List<Conversation> getConversationsbyUser();
+	public Conversation addConversation(Conversation conversation);
 }

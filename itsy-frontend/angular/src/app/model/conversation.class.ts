@@ -7,6 +7,6 @@ export class Conversation {
     id : number;
     customer : Customer;
     seller : Seller;
-    messages : Message[];
     read: boolean;
+    messages :Message[];
 }

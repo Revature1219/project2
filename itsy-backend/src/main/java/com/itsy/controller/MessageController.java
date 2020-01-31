@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itsy.model.Conversation;
@@ -21,11 +22,11 @@ public class MessageController {
 	private ConversationService conversationService;
 	@GetMapping("/messages")
 	public List<Conversation> getConversationsbyUser(){
-		User c=null;
-		return conversationService.getConversationsbyUser(c);//need to get sessions user
+		return conversationService.getConversationsbyUser();//need to get sessions user
 	}
-	public List<Conversation> getConversationsbySeller(Seller c){
-		return null;
+	@PostMapping("/messages")
+	public Conversation addConversation(Conversation c){		
+		return conversationService.addConversation(c);
 	}
 
 }

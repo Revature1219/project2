@@ -33,8 +33,7 @@ public class Conversation {
 	private Customer customer;
 	@ManyToOne
 	private Seller seller;
-	@OneToMany // (fetch = FetchType.EAGER) //Might as well fetch all of these at once.
-	private List<Message> messages;
 	private boolean read;
-	
+	@OneToMany
+	private List<Message> messages;
 }

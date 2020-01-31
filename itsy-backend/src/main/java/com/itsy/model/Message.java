@@ -33,5 +33,6 @@ public class Message {
 	@ManyToOne //(fetch = FetchType.LAZY) //keeping this eager because I'm paranoid. This will probably be ok to be Lazy, later.
 	private User originator;
 	private String contents;
-
+	@ManyToOne
+	private Conversation conversation;
 }
