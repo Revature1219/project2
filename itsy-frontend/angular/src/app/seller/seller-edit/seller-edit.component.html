@@ -33,8 +33,12 @@
                 required></textarea>
                 <span class="help-block" *ngIf="details.errors?.required">The field is required.</span>
             </div>
+            <div class="form-group">
+                <input type="file" (change)="onFileChanged($event)" name="image" style="padding-bottom: 0.5rem;">
+                <img class="float-left" [src]="imgURL" style="height: 250px; padding-right: 0.5rem;">
+            </div>
             <div class="float-right">
-                <button type="submit" (click)="updateItem()" class="btn btn-success mx-2" style="width: 100px;">Save</button>
+                <button type="submit" (click)="updateItem()" class="btn btn-success my-2 mx-2" style="width: 100px; padding-top: 0.5rem;">Save</button>
                 <button type="submit" (click)="deleteItem()" class="btn btn-danger" style="width: 100px;">Delete</button>
             </div>
         </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/model/item.class';
 import { ItemService } from 'src/app/service/item.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-seller-edit',
@@ -11,8 +12,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SellerEditComponent implements OnInit {
 
   private item: Item;
+  private imgURL: any;
+  private selectedFile;
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private httpClient: HttpClient, private itemService: ItemService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -32,6 +35,16 @@ export class SellerEditComponent implements OnInit {
 
   gotoItemList(): void {
     this.router.navigate(['/seller']);
+  }
+
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+    // For Displaying the selected image
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event2) => {
+      this.imgURL = reader.result;
+    };
   }
 
 }
