@@ -11,6 +11,7 @@ import { SellerService } from './seller.service';
 export class ItemService {
 
   private url: string;
+  private sellerId: number;
   // private seller: Seller;
 
   constructor(private http: HttpClient, private sellerService: SellerService) {
@@ -18,16 +19,26 @@ export class ItemService {
   }
 
   public getAllItemsBySeller(seller: Seller): Observable<Item[]> {
+    this.sellerId = 1;
+    // seller.id = 1;
     // this.sellerService.getSellerById(id).subscribe(data => {
     //   this.seller = data;
     //   this.seller.id = id;
     // });
     // return this.http.get<Item[]>(this.url + '/seller/' + seller.id);
-    return this.http.get<Item[]>(this.url + '/seller/' + 1);
+    return this.http.get<Item[]>(this.url + '/seller/' + this.sellerId);
+  }
+
+  public getAllItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.url);
   }
 
   public getItemById(id: number): Observable<Item> {
     return this.http.get<Item>(this.url + '/' + id);
+  }
+
+  public addItem(item: Item) {
+    return this.http.post<Item>(this.url, item);
   }
 
   public updateItem(item: Item) {

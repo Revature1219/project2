@@ -38,4 +38,10 @@ export class SellerItemComponent implements OnInit {
     });
   }
 
+  // ngOnInit() {
+  //   this.itemService.getAllItems().subscribe(data => {
+  //     this.items = data;
+  //   });
+  // }
+
 }
