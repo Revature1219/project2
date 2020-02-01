@@ -19,6 +19,7 @@ export class ItemreviewComponent implements OnChanges {
                         date:new Date(),
                         item:this.item
                       };
+  errormessage:String;
   constructor(private reviewService: ReviewService) { }
 
   ngOnChanges() {
@@ -31,6 +32,23 @@ export class ItemreviewComponent implements OnChanges {
 
   submitReview(){
     this.userReview.date=new Date();
-    this.reviewService.addItemReview(this.userReview).subscribe();
+    this.userReview.message=this.userReview.message.trim();
+    if(this.userReview.message.length<=0){
+        this.errormessage="Please enter a review."
+    }
+    else if(this.userReview.message.length>=255){
+        this.errormessage="Review too long. Max characters is 255."
+    }
+    else if(this.userReview.rating<=0){
+      this.errormessage="Please enter a rating."
+    }
+    else if(this.userReview.rating>5){
+      this.errormessage="Invalid rating."
+    }
+    else{
+      this.errormessage="";
+      this.reviewService.addItemReview(this.userReview).subscribe();
+      window.location.reload(); 
+    }
   }
 }
