@@ -1,33 +1,32 @@
-import { Component, OnChanges,Input } from '@angular/core';
-import { Item } from 'src/app/model/item.class';
-import { ItemReview } from 'src/app/model/itemReview.class';
+import { Component, OnChanges, Input } from '@angular/core';
+import { Seller } from 'src/app/model/seller.class';
+import { SellerReview } from 'src/app/model/sellerReview.class';
 import { ReviewService } from 'src/app/service/review.service';
 
 @Component({
-  selector: 'app-itemreview',
-  templateUrl: './itemreview.component.html',
-  styleUrls: ['./itemreview.component.css']
+  selector: 'app-sellerreview',
+  templateUrl: './sellerreview.component.html',
+  styleUrls: ['./sellerreview.component.css']
 })
-export class ItemreviewComponent implements OnChanges {
+export class SellerreviewComponent implements OnChanges {
 
-  @Input() item: Item;
-  reviews: ItemReview[];
-  userReview:ItemReview = { id:0,
+  @Input() seller: Seller;
+  errormessage:String;
+  reviews: SellerReview[];
+  userReview:SellerReview = { id:0,
                         customer:null,
                         rating:0,
                         message:"",
                         date:new Date(),
-                        item:this.item
+                        seller:this.seller
                       };
-  errormessage:String;
   constructor(private reviewService: ReviewService) { }
 
   ngOnChanges() {
-    this.item.image=null;
-    this.reviewService.getReviewsbyItem(this.item).subscribe(
+    this.reviewService.getReviewsbySeller(this.seller).subscribe(
             reviews => this.reviews = reviews
     );
-    this.userReview.item=this.item;
+    this.userReview.seller=this.seller;
   }
 
   submitReview(){
@@ -47,8 +46,8 @@ export class ItemreviewComponent implements OnChanges {
     }
     else{
       this.errormessage="";
-      this.reviewService.addItemReview(this.userReview).subscribe();
-      window.location.reload(); 
+      this.reviewService.addSellerReview(this.userReview).subscribe();
+      window.location.reload();
     }
   }
 }

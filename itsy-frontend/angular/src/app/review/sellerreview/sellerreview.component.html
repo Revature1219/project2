@@ -1,7 +1,7 @@
 <h1>Reviews</h1>
 <ul class="reviews">
   <div *ngFor="let review of reviews">
-    <app-review [review]="review" [itemName]="item.name"></app-review>
+    <app-review [review]="review"></app-review>
   </div>
 </ul>
 <ng-container (click)="userReview.rating=1">
