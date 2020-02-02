@@ -118,35 +118,12 @@ public class ItsyBackendApplication {
 			cart = new Cart();
 			Map<Item, Integer> itemMap = new HashMap<Item, Integer>();
 			itemMap.put(item, 1);
-			cart.setItems(itemMap);
+//			cart.setItems(itemMap);
 			cart.setSeller(seller);
 			cart.setStatus(status);
 			List<Cart> carts = new ArrayList<Cart>();
 			carts.add(cart);
 			cartService.addCart(cart);
-			
-			
-			System.out.println("Generating the Customer info...");
-			Customer customer;
-			int cid = 1;
-			customer = new Customer();
-			customer.setCarts(carts);
-			customer.setConversations(new ArrayList<Conversation>());
-			customer.setName(cid++ + "customer");
-			customer.setPassword("password");
-			customerService.addCustomer(customer);
-			customer = new Customer();
-			customer.setCarts(null);
-			customer.setConversations(new ArrayList<Conversation>());
-			customer.setName(cid++ + "customer");
-			customer.setPassword("password");
-			customerService.addCustomer(customer);
-			customer = new Customer();
-			customer.setCarts(null);
-			customer.setConversations(new ArrayList<Conversation>());
-			customer.setName(cid++ + "customer");
-			customer.setPassword("password");
-			customerService.addCustomer(customer);
 		};
 	}
 
