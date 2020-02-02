@@ -1,8 +1,8 @@
 <h1>Reviews</h1>
 <ul class="reviews">
-  <li *ngFor="let review of reviews">
+  <div *ngFor="let review of reviews">
     <app-review [review]="review" [itemName]="item.name"></app-review>
-  </li>
+  </div>
 </ul>
 <ng-container (click)="userReview.rating=1">
 <ng-container *ngIf="userReview.rating>=1; else lone"><img (click)="userReview.rating=1" width=20 height=20 src="assets/fullStar.png"/></ng-container>
