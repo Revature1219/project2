@@ -16,7 +16,4 @@ export class Item {
     // @OneToOne(fetch = FetchType.LAZY)
     // private Seller seller;
     seller: Seller;
-    // @OneToMany(fetch = FetchType.LAZY)
-    // private List<Review> reviews;
-    reviews: Review[];
 }

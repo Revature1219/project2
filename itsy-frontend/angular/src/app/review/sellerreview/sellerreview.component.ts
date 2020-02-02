@@ -1,29 +1,29 @@
-import { Component, OnChanges,Input, OnInit } from '@angular/core';
-import { Item } from 'src/app/model/item.class';
-import { ItemReview } from 'src/app/model/itemReview.class';
+import { Component, OnChanges, Input } from '@angular/core';
+import { Seller } from 'src/app/model/seller.class';
+import { SellerReview } from 'src/app/model/sellerReview.class';
 import { ReviewService } from 'src/app/service/review.service';
 import { SessionService } from 'src/app/service/session.service';
 import { Customer } from 'src/app/model/customer.class';
 
 @Component({
-  selector: 'app-itemreview',
-  templateUrl: './itemreview.component.html',
-  styleUrls: ['./itemreview.component.css']
+  selector: 'app-sellerreview',
+  templateUrl: './sellerreview.component.html',
+  styleUrls: ['./sellerreview.component.css']
 })
-export class ItemreviewComponent implements OnChanges,OnInit {
+export class SellerreviewComponent implements OnChanges {
 
-  @Input() item: Item;
-  reviews: ItemReview[];
+  @Input() seller: Seller;
+  errormessage:String;
+  reviews: SellerReview[];
   customer:Customer;
-  showReview:boolean = true;
-  userReview:ItemReview = { id:0,
+  showReview = true;
+  userReview:SellerReview = { id:0,
                         customer:null,
                         rating:0,
                         message:"",
                         date:new Date(),
-                        item:this.item
+                        seller:this.seller
                       };
-  errormessage:String;
   constructor(private reviewService: ReviewService, private sessionService: SessionService) { }
 
   ngOnInit(){
@@ -31,28 +31,25 @@ export class ItemreviewComponent implements OnChanges,OnInit {
     this.userReview.customer=this.customer;
   }
   ngOnChanges() {
-    if(this.item!=null){
-    this.reviewService.getReviewsbyItem(this.item).subscribe(
+    if(this.seller!=null){
+    this.reviewService.getReviewsbySeller(this.seller).subscribe(
             reviews => {this.reviews = reviews
-            this.showReview=this.showUserReview();
-          }
+              this.showReview=this.showUserReview();
+            }
     );
-    this.userReview.item=this.item;
-        }
-    
+    this.userReview.seller=this.seller;
+          }
   }
   showUserReview(): boolean{
     if(this.customer == null){
       return false
     }
-    let review:ItemReview
+    let review:SellerReview
     for(let i=0; i<this.reviews.length; i++){
       if(this.reviews[i].customer.id==this.customer.id){
-        console.log("dupe"+i)
         return false;
       }
     }
-    console.log("show")
     return true;
   }
   submitReview(){
@@ -72,8 +69,9 @@ export class ItemreviewComponent implements OnChanges,OnInit {
     }
     else{
       this.errormessage="";
-      this.reviewService.addItemReview(this.userReview).subscribe();
-      window.location.reload(); 
+      console.log(this.userReview);
+      this.reviewService.addSellerReview(this.userReview).subscribe();
+      window.location.reload();
     }
   }
 }

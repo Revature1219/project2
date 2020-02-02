@@ -118,7 +118,7 @@ public class ItsyBackendApplication {
 			cart = new Cart();
 			Map<Item, Integer> itemMap = new HashMap<Item, Integer>();
 			itemMap.put(item, 1);
-			cart.setItems(itemMap);
+			//cart.setItems(itemMap);
 			cart.setSeller(seller);
 			cart.setStatus(status);
 			List<Cart> carts = new ArrayList<Cart>();
@@ -127,8 +127,8 @@ public class ItsyBackendApplication {
 			
 			
 			System.out.println("Generating the Customer info...");
-			Customer customer;
-			int cid = 1;
+			//Customer customer;
+			//int cid = 1;
 			customer = new Customer();
 			customer.setCarts(carts);
 			customer.setConversations(new ArrayList<Conversation>());
