@@ -47,19 +47,19 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer getCustomerById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return customerDao.findById(id).get();
 	}
 
 	@Override
 	public Customer updateCustomer(Customer c) {
 		// TODO Auto-generated method stub
-		return null;
+		return customerDao.save(c);
 	}
 
 	@Override
 	public void deleteCustomer(int id) {
 		// TODO Auto-generated method stub
-		
+		customerDao.deleteById(id);
 	}
 
 }

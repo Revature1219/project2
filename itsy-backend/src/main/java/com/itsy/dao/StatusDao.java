@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.itsy.model.Status;
 
 @Repository
-public interface StatusDao extends JpaRepository<Status, Integer> {
-	
+public interface StatusDao extends JpaRepository<Status, Integer>{
 }
