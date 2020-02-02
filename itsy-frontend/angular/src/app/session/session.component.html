@@ -1,0 +1,13 @@
+<div *ngIf="currentlyInSession; then inSession else notInSession"></div>
+<ng-template #inSession>
+    <div *ngIf="isCustomerSession; then customerSession else sellerSession"></div>
+    <ng-template #customerSession>
+        Customer: Logout
+    </ng-template>
+    <ng-template #sellerSession>
+        Seller: Logout
+    </ng-template>
+</ng-template>
+<ng-template #notInSession>
+    Login: <a routerLink="/customer/login">Customer</a> | <a>Seller</a>
+</ng-template>

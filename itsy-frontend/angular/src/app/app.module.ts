@@ -23,6 +23,10 @@ import { OrderHistoryComponent } from './customer/order-history/order-history.co
 import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SellerOrderComponent } from './seller/seller-order/seller-order.component';
+import { SessionComponent } from './session/session.component';
+import { RegisterComponent } from './customer/register/register.component';
+import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
+import { SessionService } from './service/session.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { SellerOrderComponent } from './seller/seller-order/seller-order.compone
     ItemDisplayComponent,
     OrderHistoryComponent,
     ShopDisplayComponent,
-    SellerOrderComponent
+    SellerOrderComponent,
+    SessionComponent,
+    RegisterComponent,
+    CustomerLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,7 @@ import { SellerOrderComponent } from './seller/seller-order/seller-order.compone
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ItemService, SellerService],
+  providers: [ItemService, SellerService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

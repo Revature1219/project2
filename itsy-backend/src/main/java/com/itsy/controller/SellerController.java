@@ -48,5 +48,10 @@ public class SellerController {
 	public Seller addSeller(@RequestBody Seller seller) {
 		return sellerService.addSeller(seller);
 	}
-
+	
+	@PostMapping("/seller/login")
+	public Seller validate(@RequestBody Seller seller) {
+		System.out.println("Hit seller/login");
+		return null;
+	}
 }
