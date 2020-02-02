@@ -24,10 +24,12 @@ import { ShopDisplayComponent } from './customer/shop-display/shop-display.compo
 import { HttpClientModule } from '@angular/common/http';
 import { SellerOrderComponent } from './seller/seller-order/seller-order.component';
 import { SessionComponent } from './session/session.component';
-import { RegisterComponent } from './customer/register/register.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
-import { SessionService } from './service/session.service';
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
+import { SellerRegistrationComponent } from './seller/seller-registration/seller-registration.component';
+import { SessionService } from './service/session.service';
+import { UrlService } from './service/url.service';
+import { CustomerRegistrationComponent } from './customer/customer-registration/customer-registration.component';
 
 @NgModule({
   declarations: [
@@ -48,9 +50,10 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
     ShopDisplayComponent,
     SellerOrderComponent,
     SessionComponent,
-    RegisterComponent,
     CustomerLoginComponent,
-    SellerLoginComponent
+    SellerLoginComponent,
+    SellerRegistrationComponent,
+    CustomerRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ItemService, SellerService, SessionService],
+  providers: [ItemService, SellerService, SessionService, UrlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
