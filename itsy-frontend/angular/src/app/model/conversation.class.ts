@@ -8,5 +8,4 @@ export class Conversation {
     customer : Customer;
     seller : Seller;
     read: boolean;
-    messages :Message[];
 }

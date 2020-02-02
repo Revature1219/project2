@@ -1,4 +1,5 @@
 import { User } from './user.class';
+import { Conversation } from './conversation.class';
 
 export class Message {
     
@@ -12,5 +13,6 @@ export class Message {
     originator : User;
     //     private String contents;
     contents : string;
+    conversation : Conversation;
 
 }

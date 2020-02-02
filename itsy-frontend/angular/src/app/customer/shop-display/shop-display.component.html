@@ -1,0 +1,16 @@
+<app-customer-header></app-customer-header>
+<h1>{{seller.name}}</h1>
+<div class="container">
+    <div *ngFor="let item of items" class="row">
+        <div class="col-sm-6">
+            <a href="/item/{{item.id}}"><img src={{item.image}}></a>
+        </div>
+        <div class="col-sm-6">
+            {{item.name}}<br/><br/>
+            {{item.price}}<br/><br/>
+            {{item.details}}<br/>
+        </div>
+    </div>
+</div>
+<button type="button" (click)="startConvo()">startConvo</button>
+<app-sellerreivew></app-sellerreivew>

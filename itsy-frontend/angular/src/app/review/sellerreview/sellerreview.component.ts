@@ -14,9 +14,7 @@ export class SellerreviewComponent implements OnInit {
                         customer:null,
                         rating:0,
                         message:"",
-                        date:new Date(),
-                        seller:this.seller,
-                        item:null
+                        date:new Date()
                       };
   constructor() { }
 

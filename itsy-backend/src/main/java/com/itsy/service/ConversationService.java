@@ -9,7 +9,8 @@ import com.itsy.model.Seller;
 import com.itsy.model.User;
 
 public interface ConversationService {
-	public List<Message> getMessages(int id);
+	public List<Message> getMessages(Conversation conversation);
 	public List<Conversation> getConversationsbyUser();
 	public Conversation addConversation(Conversation conversation);
+	public Message addMessage(Message message);
 }

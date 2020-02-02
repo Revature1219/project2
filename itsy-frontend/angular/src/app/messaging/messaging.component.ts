@@ -3,6 +3,10 @@ import { Router }                 from '@angular/router';
 import { Conversation } from '../model/conversation.class';
 import { Message } from '../model/message.class';
 import { MessagingService } from './messaging.service';
+import { MyConversation } from './myConversation.class';
+import { Subscription } from 'rxjs';
+import { StartConversationService } from './start-conversation.service';
+import { Seller } from '../model/seller.class';
 
 @Component({
   selector: 'app-messaging',
@@ -16,42 +20,54 @@ export class MessagingComponent implements OnInit,AfterViewChecked{
   details: string="";
   scrollDown:boolean=false;
   currentConversation=0;
-  conversations: Conversation[];
-  /*conversations: Conversation[]=[{
-                    id:1,
-                    customer : "me",
-                    seller : "him",
-                    messages : [],
-                    read: false
-                    },
-                    {
-                      id:2,
-                      customer : "me",
-                      seller : "someoneelse",
-                      messages : [{
-                        id:5,
-                        sentDate:new Date(),
-                        originator:"someoneelse",
-                        contents:"hello"
-                      },{
-                        id:6,
-                        sentDate:new Date(),
-                        originator:"someoneelse",
-                        contents:"sup"
-                      }],
-                      read: false
-                    }]*/
+  conversations: MyConversation[];
+  messages: Message[][];
+  subscription: Subscription;
   output: string="begin";
   message: string="";
   showText = false;
   sending = false;
 
-  constructor(private router: Router, private service:MessagingService) {}
+  constructor(private router: Router, private service:MessagingService, private startConvoService:StartConversationService) {
+    //code for start conversation button
+    this.subscription=startConvoService.startConversation$.subscribe(seller=>{
+        let id=seller.id;
+        console.log(id);
+        let conversation:MyConversation;
+        let i = 0;
+        for(i=0; i< this.conversations.length;i++){
+          conversation=this.conversations[i];
+          console.log(conversation.seller.id+"   "+id)
+          if(conversation.seller.id==id){
+            console.log("found dupe");
+            this.currentConversation=i
+            this.showText=true;
+            return;
+          }
+        }
+        conversation={id:0,
+                      seller:seller,
+                      customer:null,//will pull current user server side
+                      read:false,
+                      messages:[]}
+        this.conversations.push(conversation);
+        this.showText=true;
+        this.currentConversation=i;//end of array.
+        console.log(this.conversations[this.currentConversation]);
+      }
+    )
+  }
 
   ngOnInit(){
     this.service.getConversations().subscribe(data=>{
-      this.conversations=data;
+      this.conversations=<MyConversation[]>data;
+      if(this.conversations.length>0){
+        this.service.getMessages(this.conversations[this.currentConversation]).subscribe(data=>{
+          this.conversations[this.currentConversation].messages=data;
+        });
+      }
     });
+    
   }
 
 ngAfterViewChecked() {      
@@ -60,7 +76,12 @@ ngAfterViewChecked() {
     this.scrollDown=false;
     }       
 } 
-
+isUser(): boolean{
+  return true;
+}
+isntUser(): boolean{
+  return false;
+}
 scrollToBottom(): void {
     try {
         this.scrollMe.nativeElement.scrollTop = this.scrollMe.nativeElement.scrollHeight;
@@ -70,16 +91,37 @@ scrollToBottom(): void {
   send() {
     this.sending = true;
     this.details = 'Sending Message...';
+    this.message=this.message.trim()
+    if(this.message.length<1 || this.message.length>255){
+      this.textArea.nativeElement.focus();
+      this.scrollDown=true;
+      return;
+    }
     var pushedMessage:Message={
       id:4,
       sentDate:new Date(),
       originator:{id:0,
                   name:"me",
-                  password:"",
-                  conversations:null},
-      contents:this.message
+                  password:""},
+      contents:this.message,
+      conversation:{id:this.conversations[this.currentConversation].id,
+                    seller:null,
+                    customer:null,
+                  read:null}
     };
+
     this.conversations[this.currentConversation].messages.push(pushedMessage);
+    if(this.conversations[this.currentConversation].messages.length==1){
+      this.service.sendConversation(this.conversations[this.currentConversation]).subscribe(data =>{
+        pushedMessage.conversation.id=data.id
+        this.conversations[this.currentConversation].id=data.id;
+        this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
+      }
+      )
+    }
+    else{
+      this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
+    }
     this.message=""
     this.textArea.nativeElement.focus();
     this.scrollDown=true;
@@ -87,28 +129,20 @@ scrollToBottom(): void {
 
   cancel() {
     this.showText=false;
-    this.closePopup();
   }
   toggleContent(){
     this.showText=!this.showText;
     this.scrollDown=true;
   }
   closePopup() {
-    // Providing a `null` value to the named outlet
-    // clears the contents of the named outlet
 
     this.router.navigate([{ outlets: { popup: null }}]);
   }
-  showContent(){
-    this.showText=true;
-    this.output+="show"
-  }
-  dontShowContent(){
-    this.showText=false;
-    this.output+="fade"
-  }
   changeConversation(index:number){
     this.currentConversation=index;
+    this.service.getMessages(this.conversations[this.currentConversation]).subscribe(data=>{
+      this.conversations[this.currentConversation].messages=data;
+    });
     this.scrollToBottom();
   }
 }

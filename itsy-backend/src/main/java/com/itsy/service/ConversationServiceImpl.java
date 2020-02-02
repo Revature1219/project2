@@ -20,16 +20,20 @@ public class ConversationServiceImpl implements ConversationService {
 	@Autowired
 	private ConversationDao conversationDao;
 	
+	@Autowired
+	private MessageDao messageDao;
+	
 	@Override
-	public List<Message> getMessages(int id) {
-		return null;
+	public List<Message> getMessages(Conversation conversation) {
+		return messageDao.findByConversation(conversation);
 	}
 
 	@Override
 	public List<Conversation> getConversationsbyUser() {
 		User u=new Customer();
-		u.setId(1);
+		u.setId(3);
 		if(u.getClass().equals(Customer.class)) {
+			System.out.println(u.getId());
 			return conversationDao.findByCustomer((Customer)u);
 		}
 		if(u.getClass().equals(Seller.class)) {
@@ -40,8 +44,16 @@ public class ConversationServiceImpl implements ConversationService {
 
 	@Override
 	public Conversation addConversation(Conversation conversation) {
-		conversation.setCustomer(null);//set to 
-		return conversationDao.save(conversation);
+		Customer u=new Customer();
+		u.setId(3);
+		conversation.setCustomer(u);
+		return conversationDao.saveAndFlush(conversation);
 	}
-
+	@Override
+	public Message addMessage(Message message) {
+		User u=new Customer();
+		u.setId(3);
+		message.setOriginator(u);
+		return messageDao.save(message);
+	}
 }

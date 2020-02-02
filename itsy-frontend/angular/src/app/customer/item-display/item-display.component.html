@@ -1,0 +1,8 @@
+
+<div align="center" class="container">
+    <a *ngFor="let item of items" class="col-1-4">
+        <a href="/item/{{item.id}}"><img src={{item.image}}></a><br>
+    {{item.name}}<br>
+    {{item.price}}<br>
+    </a>
+</div>

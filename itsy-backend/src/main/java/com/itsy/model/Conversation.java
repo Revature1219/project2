@@ -3,6 +3,7 @@ package com.itsy.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,11 +30,9 @@ public class Conversation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Customer customer;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Seller seller;
 	private boolean read;
-	@OneToMany
-	private List<Message> messages;
 }
