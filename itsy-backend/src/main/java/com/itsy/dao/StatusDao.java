@@ -7,5 +7,4 @@ import com.itsy.model.Status;
 
 @Repository
 public interface StatusDao extends JpaRepository<Status, Integer>{
-
 }

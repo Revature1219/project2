@@ -6,15 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SellerComponent } from './seller/seller.component';
 import { SellerHeaderComponent } from './seller/seller-header/seller-header.component';
-import { SellerPendingOrderComponent } from './seller/seller-pending-order/seller-pending-order.component';
-import { SellerTransactionHistoryComponent } from './seller/seller-transaction-history/seller-transaction-history.component';
 import { SellerAddComponent } from './seller/seller-add/seller-add.component';
 import { SellerEditComponent } from './seller/seller-edit/seller-edit.component';
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
-import { SellerMessageComponent } from './seller/seller-message/seller-message.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
 import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
+import { from } from 'rxjs';
+import { ItemService } from './service/item.service';
+import { SellerService } from './service/seller.service';
 import { CustomerHeaderComponent } from './customer/customer-header/customer-header.component';
 import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
 import { ItemDetailComponent } from './customer/item-detail/item-detail.component';
@@ -22,18 +22,21 @@ import { ItemDisplayComponent } from './customer/item-display/item-display.compo
 import { OrderHistoryComponent } from './customer/order-history/order-history.component';
 import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SellerOrderComponent } from './seller/seller-order/seller-order.component';
+import { SessionComponent } from './session/session.component';
+import { RegisterComponent } from './customer/register/register.component';
+import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
+import { SessionService } from './service/session.service';
+import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SellerComponent,
     SellerHeaderComponent,
-    SellerPendingOrderComponent,
-    SellerTransactionHistoryComponent,
     SellerAddComponent,
     SellerEditComponent,
     SellerItemComponent,
-    SellerMessageComponent,
     MessagingComponent,
     ItemreviewComponent,
     SellerreivewComponent,
@@ -42,7 +45,12 @@ import { HttpClientModule } from '@angular/common/http';
     ItemDetailComponent,
     ItemDisplayComponent,
     OrderHistoryComponent,
-    ShopDisplayComponent
+    ShopDisplayComponent,
+    SellerOrderComponent,
+    SessionComponent,
+    RegisterComponent,
+    CustomerLoginComponent,
+    SellerLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ItemService, SellerService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,14 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itsy.model.Seller;
+import com.itsy.model.Status;
 import com.itsy.dao.CartDao;
 import com.itsy.model.Cart;
 
 @Service
 public class CartServiceImpl implements CartService{
-	
+
 	@Autowired
 	private CartDao cartDao;
+  
+	// used for seller-pending-orders || history-order
+	@Override
+	public List<Cart> getCartsBySellerOrderByStatus(Seller seller) {
+		return cartDao.findBySellerOrderByStatusAsc(seller);
+	}
 
 	@Override
 	public List<Cart> getAllCarts() {

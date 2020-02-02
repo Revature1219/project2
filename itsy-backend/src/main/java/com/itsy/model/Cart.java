@@ -32,8 +32,8 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
-	@ElementCollection
-	private Map<Item, Integer> items;
+//	@ElementCollection
+//	private Map<Item, Integer> items;
 	@OneToOne(fetch = FetchType.LAZY)
 	private Seller seller;
 	@OneToOne(fetch = FetchType.LAZY)

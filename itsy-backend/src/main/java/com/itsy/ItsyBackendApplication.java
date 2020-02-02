@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Bean;
 
 import com.itsy.model.Cart;
 import com.itsy.model.Conversation;
+import com.itsy.model.Customer;
 import com.itsy.model.Item;
-import com.itsy.model.Review;
 import com.itsy.model.Seller;
 import com.itsy.model.Status;
 import com.itsy.service.ItemServiceImpl;
@@ -29,7 +29,6 @@ public class ItsyBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ItsyBackendApplication.class, args);
 	}
-	
 
 	@Bean
 	public CommandLineRunner sellerDemoData(SellerServiceImpl sellerService, ItemServiceImpl itemService, 
@@ -42,20 +41,10 @@ public class ItsyBackendApplication {
 			seller = new Seller();
 			seller.setName(id++ + "_namio");
 			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			seller.setReviews(new ArrayList<Review>());
 			sellerService.addSeller(seller);
 			seller = new Seller();
 			seller.setName(id++ + "_namio");
 			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			seller.setReviews(new ArrayList<Review>());
-			sellerService.addSeller(seller);
-			seller = new Seller();
-			seller.setName(id++ + "_namio");
-			seller.setPassword("password");
-			seller.setConversations(new ArrayList<Conversation>());
-			seller.setReviews(new ArrayList<Review>());
 			sellerService.addSeller(seller);
 			
 			System.out.println("Generating Status info...");
@@ -65,43 +54,60 @@ public class ItsyBackendApplication {
 			status.setOrdered(null);
 			status.setShipped(null);
 			statusService.addStatus(status);			
+      
+			System.out.println("Generating the Customer info...");
+			Customer customer;
+			int cid = 1;
+			customer = new Customer();
+			customer.setCarts(new ArrayList<Cart>());
+			customer.setConversations(new ArrayList<Conversation>());
+			customer.setName(cid++ + "customer");
+			customer.setPassword("password");
+			customerService.addCustomer(customer);
+			customer = new Customer();
+			customer.setCarts(new ArrayList<Cart>());
+			customer.setConversations(new ArrayList<Conversation>());
+			customer.setName(cid++ + "customer");
+			customer.setPassword("password");
+			customerService.addCustomer(customer);
+			customer = new Customer();
+			customer.setCarts(new ArrayList<Cart>());
+			customer.setConversations(new ArrayList<Conversation>());
+			customer.setName(cid++ + "customer");
+			customer.setPassword("password");
+			customerService.addCustomer(customer);
 
 			System.out.println("Generating the Item info..");
 			seller = sellerService.getAllSellers().get(0);
 			Item item;
-			byte[] image = { 0b00000000, 0b00000001, 0b00000001, 0b00000001 };
+			id = 6;
 
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
-			item.setImage(image);
 			item.setName("Name" + (id));
 			item.setPrice(id++);
 			item.setSeller(seller);
