@@ -4,6 +4,7 @@ import { Customer } from '../model/customer.class';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UrlService } from './url.service';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,8 @@ export class SessionService {
     inCustomerSession: boolean;
 
     constructor(private http: HttpClient,
-        private route: Router) { }
+        private route: Router,
+        private url: UrlService) { }
 
     ngInit() {
         this.inSession = false;
@@ -35,11 +37,11 @@ export class SessionService {
     }
 
     loginCustomer(customer: Customer): Observable<Customer> {
-        return this.http.post<Customer>("http://localhost:9001/customer/login", customer);
+        return this.http.post<Customer>(this.url.getBackendURL() + "/customer/login", customer);
     }
 
     loginSeller(seller: Seller): Observable<Seller> {
-        return this.http.post<Seller>("http://localhost:9001/seller/login", seller);
+        return this.http.post<Seller>(this.url.getBackendURL() + "/seller/login", seller);
     }
 
     beginSellerSession(seller: Seller): boolean {

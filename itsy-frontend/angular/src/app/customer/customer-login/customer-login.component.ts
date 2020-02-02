@@ -30,7 +30,7 @@ export class CustomerLoginComponent implements OnInit {
                 this.route.navigate(["/customer"]);
             },
             err => {
-                console.log("ERROR LOGGING IN for seller....")
+                console.log("ERROR LOGGING IN for customer....")
                 console.log(err);
             }
         );
