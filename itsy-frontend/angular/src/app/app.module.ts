@@ -11,7 +11,7 @@ import { SellerEditComponent } from './seller/seller-edit/seller-edit.component'
 import { SellerItemComponent } from './seller/seller-item/seller-item.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import { ItemreviewComponent } from './review/itemreview/itemreview.component';
-import { SellerreivewComponent } from './review/sellerreivew/sellerreivew.component';
+import { SellerreviewComponent } from './review/sellerreview/sellerreview.component';
 import { from } from 'rxjs';
 import { ItemService } from './service/item.service';
 import { SellerService } from './service/seller.service';
@@ -28,6 +28,9 @@ import { RegisterComponent } from './customer/register/register.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 import { SessionService } from './service/session.service';
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
+import { ReviewComponent } from './review/review.component';
+import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component';
+import { ReviewService } from './service/review.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,7 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
     SellerItemComponent,
     MessagingComponent,
     ItemreviewComponent,
-    SellerreivewComponent,
+    SellerreviewComponent,
     CustomerHeaderComponent,
     CustomerHomeComponent,
     ItemDetailComponent,
@@ -50,7 +53,9 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
     SessionComponent,
     RegisterComponent,
     CustomerLoginComponent,
-    SellerLoginComponent
+    SellerLoginComponent,
+    ReviewComponent,
+    ReviewstarsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,7 @@ import { SellerLoginComponent } from './seller/seller-login/seller-login.compone
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ItemService, SellerService, SessionService],
+  providers: [ItemService, SellerService, SessionService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

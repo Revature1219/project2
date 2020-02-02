@@ -1,4 +1,4 @@
-<p>{{review.customerName}}  {{review.date | date}}</p>
+<p>{{review.customer.name}}  {{review.date | date}}</p>
 <app-reviewstars  [rating]="review.rating"></app-reviewstars>
 
 <p style="width:70%; font-size:2em;"> {{review.message}}</p>

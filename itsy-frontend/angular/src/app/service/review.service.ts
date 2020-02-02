@@ -25,7 +25,6 @@ export class ReviewService {
     return this.http.post<ItemReview>(this.url+"/item/", itemReview);
    }
    public addSellerReview(sellerReview:SellerReview): Observable<SellerReview>{
-     console.log(sellerReview);
     return this.http.post<SellerReview>(this.url+"/seller/", sellerReview);
    }
 

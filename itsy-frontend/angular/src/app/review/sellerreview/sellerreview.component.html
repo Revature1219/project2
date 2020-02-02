@@ -4,6 +4,10 @@
     <app-review [review]="review"></app-review>
   </div>
 </ul>
+<div *ngIf="reviews.length == 0">
+  <p>Noone has reviewed this vendor.</p>
+</div>
+<div *ngIf="showReview">
 <ng-container (click)="userReview.rating=1">
 <ng-container *ngIf="userReview.rating>=1; else lone"><img (click)="userReview.rating=1" width=20 height=20 src="assets/fullStar.png"/></ng-container>
 <ng-template #lone> <ng-container><img (click)="userReview.rating=1" width=20 height=20 src="assets/emptyStar.png"/></ng-container></ng-template>
@@ -30,3 +34,4 @@
 <div></div>
 <button (click)=submitReview()>Submit</button>
 <p style="color:red">{{errormessage}}</p>
+</div>
