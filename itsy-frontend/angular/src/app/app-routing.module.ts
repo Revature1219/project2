@@ -12,6 +12,7 @@ import { OrderHistoryComponent } from './customer/order-history/order-history.co
 import { SellerOrderComponent } from './seller/seller-order/seller-order.component';
 import { RegisterComponent } from './customer/register/register.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
+import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 
 const routes: Routes = [
   // {path: '', component: AppComponent, pathMatch: 'full'},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'shop/:sellername', component: ShopDisplayComponent},
   {path: 'customer/history', component: OrderHistoryComponent},
   {path: 'customer/login', component: CustomerLoginComponent},
+  {path: 'seller/login', component: SellerLoginComponent},
   {path: 'customer/register', component: RegisterComponent},
 ];
 

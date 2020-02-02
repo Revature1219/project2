@@ -2,12 +2,13 @@
 <ng-template #inSession>
     <div *ngIf="isCustomerSession; then customerSession else sellerSession"></div>
     <ng-template #customerSession>
-        Customer: Logout
+        Customer: <a (click)="logout()">Logout</a>
     </ng-template>
     <ng-template #sellerSession>
-        Seller: Logout
+        Seller: <a (click)="logout()">Logout</a>
     </ng-template>
 </ng-template>
 <ng-template #notInSession>
-    Login: <a routerLink="/customer/login">Customer</a> | <a>Seller</a>
+    Login: <a routerLink="/customer/login">Customer</a> | <a routerLink="/seller/login">Seller</a>
 </ng-template>
+ | <a (click)="logout()">Force Logout</a>

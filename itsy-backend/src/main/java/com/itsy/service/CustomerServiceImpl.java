@@ -25,6 +25,24 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return customerDao.save(c);
 	}
+	
+	@Override
+	public Customer validate(Customer customer) throws Exception {
+		Customer foundCustomer = customerDao.findByName(customer.getName());
+		System.out.println("Found customer: " + foundCustomer.getId() + ", " + foundCustomer.getName());
+		if(foundCustomer == null) {
+			System.out.println("Didn't find Customer..");
+			throw new Exception("Invalid Credentials");
+		}
+		
+		if(foundCustomer.getPassword().equals(customer.getPassword())) {
+			System.out.println("Found the correct Password..");
+			return foundCustomer;
+		}
+		
+		System.out.println("Incorrect Password..");
+		throw new Exception("Invalid Credentials");
+	}
 
 	@Override
 	public Customer getCustomerById(int id) {

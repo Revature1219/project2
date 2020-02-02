@@ -30,7 +30,12 @@ export class SessionComponent implements OnInit {
             this.currentlyInSession = this.inSessionCheck;
         }
         if(this.inCustomerSessionCheck != this.isCustomerSession) {
-            this.isCustomerSession = this.isCustomerSession;
+            this.isCustomerSession = this.inCustomerSessionCheck;
         }
+    }
+
+    logout() {
+        console.log("closing session..")
+        this.session.endSession();
     }
 }

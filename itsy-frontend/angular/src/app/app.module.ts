@@ -27,6 +27,7 @@ import { SessionComponent } from './session/session.component';
 import { RegisterComponent } from './customer/register/register.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 import { SessionService } from './service/session.service';
+import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SessionService } from './service/session.service';
     SellerOrderComponent,
     SessionComponent,
     RegisterComponent,
-    CustomerLoginComponent
+    CustomerLoginComponent,
+    SellerLoginComponent
   ],
   imports: [
     BrowserModule,

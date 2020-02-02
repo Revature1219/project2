@@ -3,6 +3,7 @@ import { Seller } from '../model/seller.class';
 import { Customer } from '../model/customer.class';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,8 @@ export class SessionService {
     inSession: boolean;
     inCustomerSession: boolean;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+        private route: Router) { }
 
     ngInit() {
         this.inSession = false;
@@ -23,6 +25,8 @@ export class SessionService {
         if (sessionStorage.length > 0)
             return false;
 
+        console.log("Beginning Customer Session")
+        console.log(customer)
         customer.password = "";
         sessionStorage.setItem("customer", JSON.stringify(customer));
         this.inSession = true;
@@ -31,22 +35,17 @@ export class SessionService {
     }
 
     loginCustomer(customer: Customer): Observable<Customer> {
-        return this.http.post<Customer>("http://localhost:9001/customer/login", customer,
-        {
-            headers : new Headers({
-                'Content-Type':  'application/json'
-            })
-        });
+        return this.http.post<Customer>("http://localhost:9001/customer/login", customer);
     }
 
     loginSeller(seller: Seller): Observable<Seller> {
         return this.http.post<Seller>("http://localhost:9001/seller/login", seller);
     }
-    
+
     beginSellerSession(seller: Seller): boolean {
         if (sessionStorage.length > 0)
-        return false;
-        
+            return false;
+
         seller.password = "";
         sessionStorage.setItem("seller", JSON.stringify(seller));
         this.inSession = true;
@@ -74,7 +73,7 @@ export class SessionService {
             if (sessionStorage.key(i) == "customer")
                 break;
             else {
-                if(i == sessionStorage.length - 1)
+                if (i == sessionStorage.length - 1)
                     return undefined;
             }
         }
@@ -89,7 +88,7 @@ export class SessionService {
             if (sessionStorage.key(i) == "seller")
                 break;
             else {
-                if(i == sessionStorage.length - 1)
+                if (i == sessionStorage.length - 1)
                     return undefined;
             }
         }
@@ -98,6 +97,7 @@ export class SessionService {
 
     endSession() {
         this.inSession = false;
-        sessionStorage.clear;
+        sessionStorage.clear();
+        this.route.navigate(['/customer']);
     }
 }

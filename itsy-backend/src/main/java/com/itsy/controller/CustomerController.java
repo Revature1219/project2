@@ -31,8 +31,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/customer/login")
-	public Customer validate(@RequestBody Customer customer) {
-		System.out.println("Hit customer/login");
-		return null;
+	public Customer validate(@RequestBody Customer customer) throws Exception {
+		System.out.println("hitting customer/login");
+		return service.validate(customer);
 	}
 }

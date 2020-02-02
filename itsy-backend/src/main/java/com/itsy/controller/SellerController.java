@@ -50,8 +50,8 @@ public class SellerController {
 	}
 	
 	@PostMapping("/seller/login")
-	public Seller validate(@RequestBody Seller seller) {
+	public Seller validate(@RequestBody Seller seller) throws Exception {
 		System.out.println("Hit seller/login");
-		return null;
+		return sellerService.validate(seller);
 	}
 }
