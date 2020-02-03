@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ItemService } from "../../../item.service";
+import { ItemService } from "../../service/item.service";
 import { Item } from '../../model/item.class';
 
 @Component({
@@ -25,7 +25,7 @@ export class ItemDetailComponent implements OnInit {
 
   getItem(): void{
     const id = +this.route.snapshot.paramMap.get('id');
-    this.itemService.getItem(id).subscribe(item =>this.item = item);
+    this.itemService.getItemById(id).subscribe(item =>this.item = item);
   }
 
 }
