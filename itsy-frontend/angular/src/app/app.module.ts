@@ -33,6 +33,7 @@ import { CustomerRegistrationComponent } from './customer/customer-registration/
 import { ReviewComponent } from './review/review.component';
 import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component';
 import { ReviewService } from './service/review.service';
+import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ReviewService } from './service/review.service';
     SellerRegistrationComponent,
     CustomerRegistrationComponent,
     ReviewComponent,
-    ReviewstarsComponent
+    ReviewstarsComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
