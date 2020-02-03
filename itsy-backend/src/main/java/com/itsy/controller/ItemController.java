@@ -35,6 +35,11 @@ public class ItemController {
 		return itemService.getAllItemsBySeller(seller);
 	}
 	
+	@GetMapping("/itemsFromList")
+	public List<Item> getAllItemsFromList(@PathVariable("itemIds") List<Integer> ids) {
+		return itemService.getAllItemsFromList(ids);
+	}
+	
 	@GetMapping("/item/{id}")
 	public Item getItemById(@PathVariable("id") int id) {
 		return itemService.getItemById(id);

@@ -27,7 +27,7 @@ import lombok.ToString;
 @Entity
 @Table
 @Indexed
-public abstract class User {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)

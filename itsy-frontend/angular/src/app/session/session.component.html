@@ -1,0 +1,14 @@
+<div *ngIf="currentlyInSession; then inSession else notInSession"></div>
+<ng-template #inSession>
+    <div *ngIf="isCustomerSession; then customerSession else sellerSession"></div>
+    <ng-template #customerSession>
+        Hello, {{name}}! <a class="fakeLink" (click)="logout()">Logout</a>
+    </ng-template>
+    <ng-template #sellerSession>
+        Hello, {{name}}! <a class="fakeLink" (click)="logout()">Logout</a>
+    </ng-template>
+</ng-template>
+<ng-template #notInSession>
+    <a routerLink="/customer/login">Login</a> | <a routerLink="/customer/register">Register</a>
+</ng-template>
+ | <a class="fakeLink" (click)="logout()">Force Logout</a>
