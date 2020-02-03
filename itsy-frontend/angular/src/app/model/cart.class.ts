@@ -8,7 +8,7 @@ export class Cart {
     id: number;
     // @ElementCollection
     // private Map<Item, Integer> items;
-    items: { item: Item, quantity: number }[];
+    items: Map<number,number>;
     // @OneToOne(fetch = FetchType.LAZY)
     // private Seller seller;
     seller: Seller;

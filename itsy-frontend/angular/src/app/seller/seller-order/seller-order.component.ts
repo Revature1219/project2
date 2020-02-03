@@ -13,18 +13,18 @@ export class SellerOrderComponent implements OnInit {
   // private carts: Cart[];
   // private seller: Seller;
 
-  carts: Cart[] =
-    [
-      {
-        id: 1, items: [null, null], seller: null, status: null
-      },
-      {
-        id: 2, items: [null, null], seller: null, status: null
-      },
-      {
-        id: 3, items: [null, null], seller: null, status: null
-      },
-    ];
+//   carts: Cart[] =
+//     [
+//       {
+//         id: 1, items: [null, null], seller: null, status: null
+//       },
+//       {
+//         id: 2, items: [null, null], seller: null, status: null
+//       },
+//       {
+//         id: 3, items: [null, null], seller: null, status: null
+//       },
+//     ];
 
   constructor() { }
 

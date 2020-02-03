@@ -4,7 +4,8 @@ import { Location } from '@angular/common';
 import { Seller } from 'src/app/model/seller.class';
 import { SellerService } from "../../service/seller.service";
 import { Item } from "../../model/item.class";
-import { ItemService } from "../../service/item.service";
+import { ItemService } from "../../../item.service";
+import { StartConversationService } from 'src/app/messaging/start-conversation.service';
 
 @Component({
   selector: 'app-shop-display',
@@ -20,6 +21,7 @@ export class ShopDisplayComponent implements OnInit {
     private route: ActivatedRoute,
     private sellerService: SellerService,
     private itemService: ItemService,
+    private startConvoService: StartConversationService,
     private location: Location) { }
 
   ngOnInit() {
@@ -34,5 +36,13 @@ export class ShopDisplayComponent implements OnInit {
       this.itemService.getAllItemsBySeller(this.seller).subscribe(items => this.items = items);
     });
   }
-
+  startConvo(){
+    let testseller:Seller;
+    testseller={
+                id:2,
+              name:"",
+              password:""}
+    console.log("start")
+    this.startConvoService.startConvo(this.seller);
+  }
 }

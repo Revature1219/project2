@@ -10,9 +10,10 @@ import { ItemDetailComponent } from './customer/item-detail/item-detail.componen
 import { ShopDisplayComponent } from './customer/shop-display/shop-display.component';
 import { OrderHistoryComponent } from './customer/order-history/order-history.component';
 import { SellerOrderComponent } from './seller/seller-order/seller-order.component';
-import { RegisterComponent } from './customer/register/register.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 import { SellerLoginComponent } from './seller/seller-login/seller-login.component';
+import { CustomerRegistrationComponent } from './customer/customer-registration/customer-registration.component';
+import { SellerRegistrationComponent } from './seller/seller-registration/seller-registration.component';
 
 const routes: Routes = [
   // {path: '', component: AppComponent, pathMatch: 'full'},
@@ -26,8 +27,9 @@ const routes: Routes = [
   {path: 'shop/:sellerid', component: ShopDisplayComponent},
   {path: 'customer/history', component: OrderHistoryComponent},
   {path: 'customer/login', component: CustomerLoginComponent},
+  {path: 'customer/register', component: CustomerRegistrationComponent},
   {path: 'seller/login', component: SellerLoginComponent},
-  {path: 'customer/register', component: RegisterComponent},
+  {path: 'seller/register', component: SellerRegistrationComponent},
 ];
 
 @NgModule({

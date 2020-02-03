@@ -1,3 +1,31 @@
-<app-seller-header></app-seller-header>
-<hr>
-<p>messaging works!</p>
+<div tabindex="1">   
+    <div *ngIf="showText">
+        <div>
+            <div id='buttonContainer'>
+                <div id='buttons'>
+                    <button *ngFor="let conversation of conversations; index as i" (click)="changeConversation(i)"> {{conversation.seller.name}}   </button>
+                </div>
+            </div>
+        <div id='scrollMe' #scrollMe>
+            <ul class="reviews">               
+                <div style="margin:0px" *ngFor="let message of conversations[currentConversation].messages">
+                    <div *ngIf="isUser(message.originator)" style="color:blue">
+                      {{message.originator.name}}: {{message.contents}}
+                    </div>
+                    <div *ngIf="isntUser(message.originator)" style="color:red">
+                        {{message.originator.name}}: {{message.contents}}
+                      </div>
+                </div>
+              </ul>
+        </div>
+        <div>
+            <textarea id="textArea" #textArea (keyup.enter)="send()" [(ngModel)]="message" rows="2"></textarea>
+        </div>
+        </div>
+        <div id='sendButtons'>
+        <button (click)="send()">Send</button>
+        <button (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+    <img style="align:right" src="assets/messageIcon.png" (click)="toggleContent()">
+</div>
