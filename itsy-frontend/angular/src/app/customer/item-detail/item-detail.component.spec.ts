@@ -22,4 +22,12 @@ describe('ItemDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it ('should have null in item without a URI', () => {
+    expect(component.item).toBeFalsy();
+  });
+
+  it ('should return void in getItem', () => {
+    expect(component.getItem).toBeFalsy();
+  });
 });

@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'seller/order', component: SellerOrderComponent},
   {path: 'customer', component: CustomerHomeComponent},
   {path: 'item/:id', component: ItemDetailComponent},
-  {path: 'shop/:sellername', component: ShopDisplayComponent},
+  {path: 'shop/:sellerid', component: ShopDisplayComponent},
   {path: 'customer/history', component: OrderHistoryComponent},
   {path: 'customer/login', component: CustomerLoginComponent},
   {path: 'customer/register', component: CustomerRegistrationComponent},

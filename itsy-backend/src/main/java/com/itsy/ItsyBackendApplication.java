@@ -58,28 +58,6 @@ public class ItsyBackendApplication {
 			status.setOrdered(null);
 			status.setShipped(null);
 			statusService.addStatus(status);			
-      
-			System.out.println("Generating the Customer info...");
-			Customer customer;
-			int cid = 1;
-			customer = new Customer();
-			customer.setCarts(new ArrayList<Cart>());
-			customer.setConversations(new ArrayList<Conversation>());
-			customer.setName(cid++ + "customer");
-			customer.setPassword("password");
-			customerService.addCustomer(customer);
-			customer = new Customer();
-			customer.setCarts(new ArrayList<Cart>());
-			customer.setConversations(new ArrayList<Conversation>());
-			customer.setName(cid++ + "customer");
-			customer.setPassword("password");
-			customerService.addCustomer(customer);
-			customer = new Customer();
-			customer.setCarts(new ArrayList<Cart>());
-			customer.setConversations(new ArrayList<Conversation>());
-			customer.setName(cid++ + "customer");
-			customer.setPassword("password");
-			customerService.addCustomer(customer);
 
 			System.out.println("Generating the Item info..");
 			seller = sellerService.getAllSellers().get(0);
