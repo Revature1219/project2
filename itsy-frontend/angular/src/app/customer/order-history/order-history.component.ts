@@ -17,12 +17,10 @@ export class OrderHistoryComponent implements OnInit {
   constructor(private itemService: ItemService, private sessionService: SessionService) { }
 
   ngOnInit() {
+    this.customer = null;
     if (this.sessionService.inCustomerSession){
       this.customer = this.sessionService.getCustomer();
       this.orders = this.customer.carts;
-    }
-    else {
-      this.customer = null;
     }
   }
 

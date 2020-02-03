@@ -20,6 +20,7 @@ export class ItemDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.item = null;
     this.getItem();
   }
 
