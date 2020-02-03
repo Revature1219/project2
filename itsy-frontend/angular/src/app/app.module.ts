@@ -33,6 +33,7 @@ import { CustomerRegistrationComponent } from './customer/customer-registration/
 import { ReviewComponent } from './review/review.component';
 import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component';
 import { ReviewService } from './service/review.service';
+import { StartConversationService } from './messaging/start-conversation.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,7 @@ import { ReviewService } from './service/review.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ItemService, SellerService, SessionService, UrlService, ReviewService],
+  providers: [ItemService, SellerService, SessionService, UrlService, ReviewService,StartConversationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
