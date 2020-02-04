@@ -11,9 +11,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SellerEditComponent implements OnInit {
 
-  private item: Item;
-  private imgURL: any;
-  private selectedFile;
+  item: Item;
+  imgURL: any;
+  selectedFile: any;
 
   constructor(private httpClient: HttpClient, private itemService: ItemService, private route: ActivatedRoute, private router: Router) { }
 

@@ -10,8 +10,8 @@ import { Item } from 'src/app/model/item.class';
 })
 export class SellerOrderComponent implements OnInit {
 
-  // private carts: Cart[];
-  // private seller: Seller;
+  carts: Cart[];
+  seller: Seller;
 
 //   carts: Cart[] =
 //     [

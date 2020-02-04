@@ -13,9 +13,9 @@ import { Seller } from 'src/app/model/seller.class';
 })
 export class SellerAddComponent implements OnInit {
 
-  private item: Item;
-  private imgURL: any;
-  private selectedFile;
+  item: Item;
+  imgURL: any;
+  selectedFile: any;
 
   constructor(private session: SessionService, private itemService: ItemService,
               private router: Router, private httpClient: HttpClient) {

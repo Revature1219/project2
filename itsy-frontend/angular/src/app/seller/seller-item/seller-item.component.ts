@@ -12,8 +12,8 @@ import { SessionService } from 'src/app/service/session.service';
 })
 export class SellerItemComponent implements OnInit {
 
-  private items: Item[];
-  private seller: Seller;
+  items: Item[];
+  seller: Seller;
 
   constructor(private itemService: ItemService, private session: SessionService) { }
 

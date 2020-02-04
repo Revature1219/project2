@@ -36,6 +36,9 @@ import { ReviewService } from './service/review.service';
 import { StartConversationService } from './messaging/start-conversation.service';
 import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
 import { FooterComponent } from './footer/footer.component';
+import { SellerMessageComponent } from './seller/seller-message/seller-message.component';
+import { SellerPendingOrderComponent } from './seller/seller-pending-order/seller-pending-order.component';
+import { SellerTransactionHistoryComponent } from './seller/seller-transaction-history/seller-transaction-history.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { FooterComponent } from './footer/footer.component';
     ReviewComponent,
     ReviewstarsComponent,
     ShoppingCartComponent,
-    FooterComponent
+    FooterComponent,
+    SellerMessageComponent,
+    SellerPendingOrderComponent,
+    SellerTransactionHistoryComponent
   ],
   imports: [
     BrowserModule,
