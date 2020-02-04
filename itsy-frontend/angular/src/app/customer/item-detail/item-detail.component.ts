@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ItemService } from "../../service/item.service";
 import { Item } from '../../model/item.class';
@@ -15,6 +15,7 @@ export class ItemDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private itemService: ItemService,
     private location: Location
   ) { }

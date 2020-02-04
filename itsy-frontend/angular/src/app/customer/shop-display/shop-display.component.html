@@ -3,7 +3,7 @@
 <div class="container">
     <div *ngFor="let item of items" class="row">
         <div class="col-sm-6">
-            <a href="/item/{{item.id}}"><img src={{item.image}}></a>
+            <a routerLink="/item/{{item.id}}"><img src='https://img1.wsimg.com/isteam/ip/b31c51fa-4c9c-4508-9bd8-787386042093/tagline.png' [alt]="item.name"></a>
         </div>
         <div class="col-sm-6">
             Item Name: {{item.name}}<br/><br/>
