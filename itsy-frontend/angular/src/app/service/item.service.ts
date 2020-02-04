@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item.class';
 import { Seller } from '../model/seller.class';
 import { SellerService } from './seller.service';
+import { UrlService } from './url.service';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,22 +13,13 @@ import { SellerService } from './seller.service';
 export class ItemService {
 
   private url: string;
-  private sellerId: number;
-  // private seller: Seller;
 
-  constructor(private http: HttpClient, private sellerService: SellerService) {
-    this.url = 'http://localhost:9001/item';
+  constructor(private http: HttpClient, private sellerService: SellerService, private urlService: UrlService) {
+    this.url = this.urlService.getBackendURL() + '/item';
   }
 
   public getAllItemsBySeller(seller: Seller): Observable<Item[]> {
-    this.sellerId = 1;
-    // seller.id = 1;
-    // this.sellerService.getSellerById(id).subscribe(data => {
-    //   this.seller = data;
-    //   this.seller.id = id;
-    // });
-    // return this.http.get<Item[]>(this.url + '/seller/' + seller.id);
-    return this.http.get<Item[]>(this.url + '/seller/' + this.sellerId);
+    return this.http.get<Item[]>(this.url + '/seller/' + seller.id);
   }
 
   public getAllItems(): Observable<Item[]> {

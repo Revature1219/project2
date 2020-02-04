@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
 export class SellerLoginComponent implements OnInit {
 
     seller: Seller;
-    constructor(private session: SessionService,
-        private route: Router) {
+    constructor(private session: SessionService, private route: Router) {
         this.seller = new Seller();
     }
 
@@ -25,10 +24,10 @@ export class SellerLoginComponent implements OnInit {
             res => {
                 // this.customer = res;
                 this.session.beginSellerSession(res);
-                this.route.navigate(["/seller"]);
+                this.route.navigate(['/seller']);
             },
             err => {
-                console.log("ERROR LOGGING IN for seller....")
+                console.log('ERROR LOGGING IN for seller....');
                 console.log(err);
             }
         );

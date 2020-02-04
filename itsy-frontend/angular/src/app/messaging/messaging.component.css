@@ -2,7 +2,7 @@
     position: fixed; 
     right: 0px;
     bottom: 0px;
-    background-color: aqua ;
+    background-color: rgb(144, 207, 223) ;
     padding : (10,10,10,10)
   }
   ul{
@@ -52,5 +52,6 @@
     }
   #buttonContainer{
     width:300px;
+    padding:0px;
     overflow: auto;
   }

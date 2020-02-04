@@ -3,6 +3,7 @@ import { Item } from 'src/app/model/item.class';
 import { ItemService } from 'src/app/service/item.service';
 import { Seller } from 'src/app/model/seller.class';
 import { SellerService } from 'src/app/service/seller.service';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-seller-item',
@@ -14,34 +15,15 @@ export class SellerItemComponent implements OnInit {
   private items: Item[];
   private seller: Seller;
 
-  // items: Item[] =
-  //   [
-  //     {
-  //       id: 1, name: '1_name', price: 1,
-  //       details: '1_details', seller: null, reviews: null
-  //     },
-  //     {
-  //       id: 2, name: '2_name', price: 2,
-  //       details: '2_details', seller: null, reviews: null
-  //     },
-  //     {
-  //       id: 3, name: '3_name', price: 3,
-  //       details: '3_details', seller: null, reviews: null
-  //     },
-  //   ];
-
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private session: SessionService) { }
 
   ngOnInit() {
+    this.seller = this.session.getSeller();
+    console.log(this.seller.id);
+
     this.itemService.getAllItemsBySeller(this.seller).subscribe(data => {
       this.items = data;
     });
   }
-
-  // ngOnInit() {
-  //   this.itemService.getAllItems().subscribe(data => {
-  //     this.items = data;
-  //   });
-  // }
 
 }

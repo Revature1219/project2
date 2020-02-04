@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,8 +32,10 @@ public class Conversation {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull(message = "The field is required.")
 	private Customer customer;
 	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull(message = "The field is required.")
 	private Seller seller;
 	private boolean read;
 }

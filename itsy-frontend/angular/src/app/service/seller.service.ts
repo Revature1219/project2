@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Seller } from '../model/seller.class';
+import { UrlService } from './url.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,9 @@ import { Seller } from '../model/seller.class';
 export class SellerService {
 
   private url: string;
-  constructor(private http: HttpClient) {
-    this.url = 'http://localhost:9001/seller';
+
+  constructor(private http: HttpClient, private urlService: UrlService) {
+    this.url = this.urlService.backendURL + '/seller';
   }
 
   public getSellerById(id: number): Observable<Seller> {

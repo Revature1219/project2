@@ -5,10 +5,10 @@
         Hello, {{name}}! <a class="fakeLink" (click)="logout()">Logout</a>
     </ng-template>
     <ng-template #sellerSession>
-        Hello, {{name}}! <a class="fakeLink" (click)="logout()">Logout</a>
+        <!-- <app-seller-header></app-seller-header> -->
     </ng-template>
 </ng-template>
 <ng-template #notInSession>
-    <a routerLink="/customer/login">Login</a> | <a routerLink="/customer/register">Register</a>
+    <app-footer></app-footer>
 </ng-template>
- | <a class="fakeLink" (click)="logout()">Force Logout</a>
+<!-- | <a class="fakeLink" (click)="logout()">Force Logout</a> -->

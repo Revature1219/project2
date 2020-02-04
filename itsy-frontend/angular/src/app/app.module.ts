@@ -35,6 +35,7 @@ import { ReviewstarsComponent } from './review/reviewstars/reviewstars.component
 import { ReviewService } from './service/review.service';
 import { StartConversationService } from './messaging/start-conversation.service';
 import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.compon
     CustomerRegistrationComponent,
     ReviewComponent,
     ReviewstarsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
