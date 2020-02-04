@@ -107,8 +107,8 @@ public class ItsyBackendApplication {
 			carts.add(cart);
 			cartService.addCart(cart);
 			System.out.println("Generating the Customer info...");
-			//Customer customer;
-			//int cid = 1;
+			Customer customer;
+			int cid = 1;
 			customer = new Customer();
 			customer.setCarts(carts);
 			customer.setConversations(new ArrayList<Conversation>());

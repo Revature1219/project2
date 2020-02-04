@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { Seller } from 'src/app/model/seller.class';
 import { SellerService } from "../../service/seller.service";
 import { Item } from "../../model/item.class";
-import { ItemService } from "../../../item.service";
+import { ItemService } from "../../service/item.service";
 import { StartConversationService } from 'src/app/messaging/start-conversation.service';
 
 @Component({
