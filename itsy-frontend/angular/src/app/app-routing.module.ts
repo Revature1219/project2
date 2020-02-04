@@ -16,7 +16,7 @@ import { CustomerRegistrationComponent } from './customer/customer-registration/
 import { SellerRegistrationComponent } from './seller/seller-registration/seller-registration.component';
 
 const routes: Routes = [
-  // {path: '', component: AppComponent, pathMatch: 'full'},
+  {path: '', redirectTo: 'customer', pathMatch: 'full'},
   {path: 'seller', component: SellerComponent},
   {path: 'seller/add', component: SellerAddComponent},
   {path: 'seller/edit/:id', component: SellerEditComponent},

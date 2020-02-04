@@ -1,8 +1,8 @@
 
 <div align="center" class="container">
     <a *ngFor="let item of items" class="col-1-4">
-        <a href="/item/{{item.id}}"><img src={{item.image}} [alt]="item.name"></a><br>
+        <a href="/item/{{item.id}}"><img src='https://img1.wsimg.com/isteam/ip/b31c51fa-4c9c-4508-9bd8-787386042093/tagline.png' [alt]="item.name"></a><br>
     {{item.name}}<br>
-    {{item.price}}<br>
+    {{item.price | currency}}<br>
     </a>
 </div>

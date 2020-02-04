@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-seller-header',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellerHeaderComponent implements OnInit {
 
-  constructor() { }
+  private name: string;
+
+  constructor(private session: SessionService) { }
 
   ngOnInit() {
+    this.name = this.session.getSeller().name;
+  }
+
+  logout() {
+    this.session.endSession();
   }
 
 }

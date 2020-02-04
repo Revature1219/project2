@@ -21,7 +21,6 @@ import com.itsy.model.Status;
 import com.itsy.service.ItemServiceImpl;
 import com.itsy.service.SellerServiceImpl;
 import com.itsy.service.StatusService;
-import com.itsy.model.Customer;
 import com.itsy.service.CartServiceImpl;
 import com.itsy.service.ConversationServiceImpl;
 import com.itsy.service.CustomerServiceImpl;
@@ -43,7 +42,8 @@ public class ItsyBackendApplication {
 			int id = 1;
 
 			seller = new Seller();
-			seller.setName(id++ + "_namio");
+//			seller.setName(id++ + "_namio");
+			seller.setName("annievo");
 			seller.setPassword("password");
 			sellerService.addSeller(seller);
 			seller = new Seller();
@@ -58,11 +58,26 @@ public class ItsyBackendApplication {
 			status.setOrdered(null);
 			status.setShipped(null);
 			statusService.addStatus(status);			
+      
+			System.out.println("Generating the Customer info...");
+			Customer customer;
+			int cid = 1;
+			customer = new Customer();
+			customer.setCarts(new ArrayList<Cart>());
+			customer.setConversations(new ArrayList<Conversation>());
+			customer.setName(cid++ + "customer");
+			customer.setPassword("password");
+			customerService.addCustomer(customer);
+			customer = new Customer();
+			customer.setCarts(new ArrayList<Cart>());
+			customer.setConversations(new ArrayList<Conversation>());
+			customer.setName(cid++ + "customer");
+			customer.setPassword("password");
+			customerService.addCustomer(customer);
 
 			System.out.println("Generating the Item info..");
 			seller = sellerService.getAllSellers().get(0);
 			Item item;
-			id = 6;
 
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
@@ -76,12 +91,8 @@ public class ItsyBackendApplication {
 			item.setPrice(id++);
 			item.setSeller(seller);
 			itemService.addItem(item);
-			item = new Item();
-			item.setDetails("Details of item: " + (id));
-			item.setName("Name" + (id));
-			item.setPrice(id++);
-			item.setSeller(seller);
-			itemService.addItem(item);
+			
+			seller = sellerService.getAllSellers().get(1);
 			item = new Item();
 			item.setDetails("Details of item: " + (id));
 			item.setName("Name" + (id));
@@ -107,8 +118,6 @@ public class ItsyBackendApplication {
 			carts.add(cart);
 			cartService.addCart(cart);
 			System.out.println("Generating the Customer info...");
-			Customer customer;
-			int cid = 1;
 			customer = new Customer();
 			customer.setCarts(carts);
 			customer.setConversations(new ArrayList<Conversation>());

@@ -2,17 +2,17 @@
     <a class="navbar-brand" routerLink="" style="color: white;"><b>Itsy</b></a>
     <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav mx-2">
+            <li class="nav-item">
+                <span class="nav-link">Hello, {{name}}!</span>
+            </li>
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link" routerLink="/seller">Account</a>
-            </li>
-            <li routerLinkActive="active" class="nav-item">
-                <a class="nav-link" routerLink="/seller/message">Message</a>
             </li>
             <li routerLinkActive="active" class="nav-item">
                 <a class="nav-link" routerLink="/seller/order">Order</a>
             </li>
             <li routerLinkActive="active" class="nav-item">
-                <a class="nav-link" routerLink="/logout">Logout</a>
+                <a class="nav-link fakeLink" (click)="logout()">Logout</a>
             </li>
         </ul>
     </div>
