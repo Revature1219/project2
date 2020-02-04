@@ -104,41 +104,41 @@ scrollToBottom(): void {
 }
 
   send() {
-    this.sending = true;
-    this.details = 'Sending Message...';
-    this.message=this.message.trim()
-    if(this.message.length<1 || this.message.length>255){
-      this.textArea.nativeElement.focus();
-      this.scrollDown=true;
-      return;
-    }
-    var pushedMessage:Message={
-      id:4,
-      sentDate:new Date(),
-      originator:this.user,
-      contents:this.message,
-      conversation:{id:this.conversations[this.currentConversation].id,
-                    seller:null,
-                    customer:null,
-                  read:null}
-    };
+    // this.sending = true;
+    // this.details = 'Sending Message...';
+    // this.message=this.message.trim()
+    // if(this.message.length<1 || this.message.length>255){
+    //   this.textArea.nativeElement.focus();
+    //   this.scrollDown=true;
+    //   return;
+    // }
+    // var pushedMessage:Message={
+    //   id:4,
+    //   sentDate:new Date(),
+    //   originator:this.user,
+    //   contents:this.message,
+    //   conversation:{id:this.conversations[this.currentConversation].id,
+    //                 seller:null,
+    //                 customer:null,
+    //               read:null}
+    // };
 
-    this.conversations[this.currentConversation].messages.push(pushedMessage);
-    if(this.conversations[this.currentConversation].messages.length==1){
-      this.service.sendConversation(this.conversations[this.currentConversation]).subscribe(data =>{
-        pushedMessage.conversation.id=data.id
-        this.conversations[this.currentConversation].id=data.id;
-        this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
-      }
-      )
-    }
-    else{
-      console.log(pushedMessage)
-      this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
-    }
-    this.message=""
-    this.textArea.nativeElement.focus();
-    this.scrollDown=true;
+    // this.conversations[this.currentConversation].messages.push(pushedMessage);
+    // if(this.conversations[this.currentConversation].messages.length==1){
+    //   this.service.sendConversation(this.conversations[this.currentConversation]).subscribe(data =>{
+    //     pushedMessage.conversation.id=data.id
+    //     this.conversations[this.currentConversation].id=data.id;
+    //     this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
+    //   }
+    //   )
+    // }
+    // else{
+    //   console.log(pushedMessage)
+    //   this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
+    // }
+    // this.message=""
+    // this.textArea.nativeElement.focus();
+    // this.scrollDown=true;
   }
 
   cancel() {

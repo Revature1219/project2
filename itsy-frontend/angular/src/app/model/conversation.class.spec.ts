@@ -1,6 +1,6 @@
 import { Conversation } from './conversation.class';
 
-describe('Conversation', () => {
+fdescribe('Conversation', () => {
   it('should create an instance', () => {
     expect(new Conversation()).toBeTruthy();
   });
