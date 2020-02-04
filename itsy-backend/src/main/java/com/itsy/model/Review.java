@@ -11,6 +11,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,8 +36,13 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	@ManyToOne(fetch = FetchType.EAGER)
+	@NotNull(message = "The field is required.")
 	private Customer customer;
+	@Min(0)
+	@Max(5)
+	@NotNull(message = "The field is required.")
 	private double rating;
+	@NotEmpty(message = "The field is required.")
 	private String message;
 	private Date date;
 

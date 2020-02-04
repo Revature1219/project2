@@ -13,8 +13,6 @@ export class StartConversationService {
     startConversation$ = this.startConversationSource.asObservable();
     
     startConvo(seller :Seller){
-      console.log("gothere")
       this.startConversationSource.next(seller);
-      
     }
 }
