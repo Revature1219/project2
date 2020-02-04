@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { StartConversationService } from './start-conversation.service';
 
-fdescribe('StartConversationService', () => {
+describe('StartConversationService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

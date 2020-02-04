@@ -30,6 +30,8 @@ export class MessagingComponent implements OnInit,AfterViewChecked{
   message: string="";
   user:User;
   scratchSeller:Seller;
+  refreshTimer;
+  isCustomer =true;
   showText = false;
   sending = false;
   constructor(private router: Router, private service:MessagingService, private startConvoService:StartConversationService, private sessionService:SessionService) {
@@ -44,22 +46,15 @@ export class MessagingComponent implements OnInit,AfterViewChecked{
 
   postButton(seller:Seller){
     let id=seller.id;
-    console.log(seller)
     let customer=this.sessionService.getCustomer();
     if(customer == null){return;}
     
     let conversation:MyConversation;
     let i = 0;
-    console.log(this.conversations)
     for(i=0; i< this.conversations.length;i++){
       conversation=this.conversations[i];
-      console.log(conversation.seller.id+"   "+id)
       if(conversation.seller.id==id){
-        console.log("found dupe");
         this.currentConversation=i
-        console.log(this.conversations)
-        console.log(this.conversations[this.currentConversation])
-        console.log(this.currentConversation)
         this.showText=true;
         return;
       }
@@ -72,7 +67,6 @@ export class MessagingComponent implements OnInit,AfterViewChecked{
     this.conversations.push(conversation);
     this.showText=true;
     this.currentConversation=i;//end of array.
-    console.log(this.conversations[this.currentConversation]);
   }
   ngOnInit(){
     
@@ -91,12 +85,6 @@ isUser(user:User): boolean{
   }
   else{return false;}
 }
-isntUser(user:User): boolean{
-  if(user.id==this.user.id){
-    return false;
-    }
-    else{return true;}
-}
 scrollToBottom(): void {
     try {
         this.scrollMe.nativeElement.scrollTop = this.scrollMe.nativeElement.scrollHeight;
@@ -104,41 +92,41 @@ scrollToBottom(): void {
 }
 
   send() {
-    // this.sending = true;
-    // this.details = 'Sending Message...';
-    // this.message=this.message.trim()
-    // if(this.message.length<1 || this.message.length>255){
-    //   this.textArea.nativeElement.focus();
-    //   this.scrollDown=true;
-    //   return;
-    // }
-    // var pushedMessage:Message={
-    //   id:4,
-    //   sentDate:new Date(),
-    //   originator:this.user,
-    //   contents:this.message,
-    //   conversation:{id:this.conversations[this.currentConversation].id,
-    //                 seller:null,
-    //                 customer:null,
-    //               read:null}
-    // };
+    this.sending = true;
+    this.details = 'Sending Message...';
+    this.message=this.message.trim()
+    if(this.message.length<1 || this.message.length>255){
+      this.textArea.nativeElement.focus();
+      this.scrollDown=true;
+      return;
+    }
+    var pushedMessage:Message={
+      id:4,
+      sentDate:new Date(),
+      originator:this.user,
+      contents:this.message,
+      conversation:{id:this.conversations[this.currentConversation].id,
+                    seller:null,
+                    customer:null,
+                  read:null}
+    };
 
-    // this.conversations[this.currentConversation].messages.push(pushedMessage);
-    // if(this.conversations[this.currentConversation].messages.length==1){
-    //   this.service.sendConversation(this.conversations[this.currentConversation]).subscribe(data =>{
-    //     pushedMessage.conversation.id=data.id
-    //     this.conversations[this.currentConversation].id=data.id;
-    //     this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
-    //   }
-    //   )
-    // }
-    // else{
-    //   console.log(pushedMessage)
-    //   this.service.sendMessage(pushedMessage).subscribe(data =>{console.log(data)});
-    // }
-    // this.message=""
-    // this.textArea.nativeElement.focus();
-    // this.scrollDown=true;
+    this.conversations[this.currentConversation].messages.push(pushedMessage);
+    if(this.conversations[this.currentConversation].messages.length==1){
+      this.service.sendConversation(this.conversations[this.currentConversation]).subscribe(data =>{
+        pushedMessage.conversation.id=data.id
+        this.conversations[this.currentConversation].id=data.id;
+        this.service.sendMessage(pushedMessage).subscribe();
+        this.refreshTimer =setTimeout(this.getConversations,10000,false)  
+      }
+      )
+    }
+    else{
+      this.service.sendMessage(pushedMessage).subscribe();
+    }
+    this.message=""
+    this.textArea.nativeElement.focus();
+    this.scrollDown=true;
   }
 
   cancel() {
@@ -147,10 +135,10 @@ scrollToBottom(): void {
   toggleContent(){
     if(this.showText==false){
       this.showText=this.getConversations(false);
-      console.log(this.showText);
     }
     else{
       this.showText=false;
+      clearTimeout(this.refreshTimer)
     }
     
     this.scrollDown=true;
@@ -158,6 +146,7 @@ scrollToBottom(): void {
   getConversations(postButton:boolean):boolean{
     var user:User=this.sessionService.getCustomer();
     if(user!=null){
+      this.isCustomer=true;
       this.user=user;
       this.service.getConversationsByCustomer(<Customer>user).subscribe(data=>{
         this.conversations=<MyConversation[]>data;
@@ -167,28 +156,32 @@ scrollToBottom(): void {
         if(this.conversations.length>0){
           this.service.getMessages(this.conversations[this.currentConversation]).subscribe(data=>{
             this.conversations[this.currentConversation].messages=data;
-            
+            this.scrollDown=true;
+            this.refreshTimer =setTimeout(this.getConversations.bind(this),10000,false)
           });
           
         }
       });
-      this.scrollDown=true;
+      
       return true;
     }
     else{
       user=this.sessionService.getSeller();
       if(user!=null){
+        this.isCustomer=false;
         this.user=user;
         this.service.getConversationsBySeller(<Seller>user).subscribe(data=>{
           this.conversations=<MyConversation[]>data;
           if(this.conversations.length>0){
             this.service.getMessages(this.conversations[this.currentConversation]).subscribe(data=>{
-              this.conversations[this.currentConversation].messages=data;             
+              this.conversations[this.currentConversation].messages=data;    
+              this.scrollDown=true; 
+              this.refreshTimer=setTimeout(this.getConversations.bind(this),10000,false)        
             });
             
           }
         });
-        this.scrollDown=true;
+        
         return true;
       }
     }
@@ -202,6 +195,7 @@ scrollToBottom(): void {
     this.currentConversation=index;
     this.service.getMessages(this.conversations[this.currentConversation]).subscribe(data=>{
       this.conversations[this.currentConversation].messages=data;
+      this.scrollDown=true;
     });
     this.scrollToBottom();
   }
