@@ -3,6 +3,8 @@ import { Item } from 'src/app/model/item.class';
 import { ItemService } from 'src/app/service/item.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { SessionService } from 'src/app/service/session.service';
+import { Seller } from 'src/app/model/seller.class';
 
 @Component({
   selector: 'app-seller-add',
@@ -15,8 +17,15 @@ export class SellerAddComponent implements OnInit {
   private imgURL: any;
   private selectedFile;
 
-  constructor(private itemService: ItemService, private router: Router, private httpClient: HttpClient) {
+  constructor(private session: SessionService, private itemService: ItemService,
+              private router: Router, private httpClient: HttpClient) {
     this.item = new Item();
+
+    this.item.seller = this.session.getSeller();
+  }
+
+  ngOnInit() {
+    this.item.seller = this.session.getSeller();
   }
 
   addItem() {
@@ -26,9 +35,6 @@ export class SellerAddComponent implements OnInit {
   gotoItemList(): void {
     this.item = new Item();
     this.router.navigate(['/seller']);
-  }
-
-  ngOnInit() {
   }
 
   public onFileChanged(event) {

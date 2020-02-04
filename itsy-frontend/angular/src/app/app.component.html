@@ -15,26 +15,10 @@
 
 <body>
     <div class="container">
-        <div id="tempNav">
-            Temporary links for browsing through our project.
-            <nav>
-                <a routerLink="/seller/register">
-                    Seller Registration
-                </a> |
-                <a routerLink="/seller/login">
-                    Seller Login
-                </a> |
-                <a routerLink="/seller">
-                    Seller
-                </a> |
-                <a routerLink="/customer">
-                    Customer
-                </a> ---
-                <app-session></app-session>
-            </nav>
-        </div>
+        <app-session></app-session>
         <router-outlet></router-outlet>
     </div>
 </body>
 <app-messaging></app-messaging>
+
 </html>
