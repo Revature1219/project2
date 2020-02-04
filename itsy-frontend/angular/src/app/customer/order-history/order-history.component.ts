@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../../model/cart.class';
-import { Item } from "../../model/item.class";
 import { ItemService } from "../../../item.service";
-import { Seller } from 'src/app/model/seller.class';
+import { SessionService } from 'src/app/service/session.service';
+import { Customer } from 'src/app/model/customer.class';
 
 @Component({
   selector: 'app-order-history',
@@ -11,14 +11,17 @@ import { Seller } from 'src/app/model/seller.class';
 })
 export class OrderHistoryComponent implements OnInit {
 
-  order: Cart;
-  items: Item[];
+  orders: Cart[];
+  customer: Customer;
 
-  constructor(private service: ItemService) { }
+  constructor(private itemService: ItemService, private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.order = new Cart();
-    this.order.id=1;
+    this.customer = null;
+    if (this.sessionService.inCustomerSession){
+      this.customer = this.sessionService.getCustomer();
+      this.orders = this.customer.carts;
+    }
   }
 
 }
