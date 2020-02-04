@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Seller } from 'src/app/model/seller.class';
-import { SellerService } from "../../../seller.service";
+import { SellerService } from "../../service/seller.service";
 import { Item } from "../../model/item.class";
-import { ItemService } from "../../../item.service";
+import { ItemService } from "../../service/item.service";
 import { StartConversationService } from 'src/app/messaging/start-conversation.service';
 
 @Component({
@@ -30,10 +30,10 @@ export class ShopDisplayComponent implements OnInit {
   }
 
   getSeller(){
-    const name = this.route.snapshot.paramMap.get('sellername');
-    this.sellerService.getSeller(name).subscribe(seller => {
+    const id = parseInt(this.route.snapshot.paramMap.get('sellerid'));
+    this.sellerService.getSellerById(id).subscribe(seller => {
       this.seller = seller;
-      this.itemService.getItemsBySeller(this.seller.id).subscribe(items => this.items = items);
+      this.itemService.getAllItemsBySeller(this.seller).subscribe(items => this.items = items);
     });
   }
   startConvo(){

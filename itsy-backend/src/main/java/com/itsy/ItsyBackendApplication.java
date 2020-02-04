@@ -42,7 +42,8 @@ public class ItsyBackendApplication {
 			int id = 1;
 
 			seller = new Seller();
-			seller.setName(id++ + "_namio");
+//			seller.setName(id++ + "_namio");
+			seller.setName("annievo");
 			seller.setPassword("password");
 			sellerService.addSeller(seller);
 			seller = new Seller();
@@ -117,8 +118,6 @@ public class ItsyBackendApplication {
 			carts.add(cart);
 			cartService.addCart(cart);
 			System.out.println("Generating the Customer info...");
-			//Customer customer;
-			//int cid = 1;
 			customer = new Customer();
 			customer.setCarts(carts);
 			customer.setConversations(new ArrayList<Conversation>());

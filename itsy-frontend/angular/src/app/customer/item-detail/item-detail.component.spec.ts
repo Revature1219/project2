@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemDetailComponent } from './item-detail.component';
 
-describe('ItemDetailComponent', () => {
+fdescribe('ItemDetailComponent', () => {
   let component: ItemDetailComponent;
   let fixture: ComponentFixture<ItemDetailComponent>;
 
@@ -21,5 +21,13 @@ describe('ItemDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it ('should have null in item without a URI', () => {
+    expect(component.item).toBeFalsy();
+  });
+
+  it ('should return void in getItem', () => {
+    expect(component.getItem).toBeFalsy();
   });
 });

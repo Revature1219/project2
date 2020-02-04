@@ -28,7 +28,6 @@ export class MessagingService {
     return this.http.get<Message[]>(this.url+"/"+conversation.id);
   }
   public sendMessage(message:Message): Observable<Message>{
-    console.log(message);
     return this.http.post<Message>(this.url+"/message/",message);
   }
 }
