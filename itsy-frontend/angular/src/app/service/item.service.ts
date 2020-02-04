@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item.class';
 import { Seller } from '../model/seller.class';
 import { SellerService } from './seller.service';
+import { UrlService } from './url.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class ItemService {
   private sellerId: number;
   // private seller: Seller;
 
-  constructor(private http: HttpClient, private sellerService: SellerService) {
-    this.url = 'http://localhost:9001/item';
+  constructor(private http: HttpClient, private sellerService: SellerService, private urlService: UrlService) {
+    this.url = urlService.getBackendURLWithSlash()+'item';
   }
 
   public getAllItemsBySeller(seller: Seller): Observable<Item[]> {
